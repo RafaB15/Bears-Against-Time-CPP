@@ -87,46 +87,20 @@ bool verify_answer_integer(int answer){
 	return ((answer >= MINIMUM_OPTION) && (answer <= MAXIMUM_OPTION));
 }
 
-//Pre condition:  Receives a memory address.
-//Post condition: Stores a char in the memory address provided.
-//				  The char is obtained from the user, verified and stored.
-void obtain_answer_channel(char* channel){
-	std::cin >> *channel;
-	while(!verify_answer_channel(*channel)){
-		print_warning_message(CHANNEL_QUESTION);
-		print_question(CHANNEL_QUESTION);
-		std::cin.clear();
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		std::cin >> *channel;
-	}
-}
-
-//Pre condition:  Receives a memory address.
-//Post condition: Stores a char in the memory address provided.
-//				  The char is obtained from the user, verified and stored.
-void obtain_answer_food(char* food){
-	std::cin >> *food;
-	while(!verify_answer_food(*food)){
-		print_warning_message(FOOD_QUESTION);
-		print_question(FOOD_QUESTION);
-		std::cin.clear();
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		std::cin >> *food;
-	}	
-}
-
-//Pre condition:  Receives a char that represents the type of question and a memory address.
-//Post condition: Stores an int in the memory address provided.
-//				  The int is obtained from the user, verified and stored.
-void obtain_answer_integer(char question_type, int* answer){
+//Pre condition:  Receives the type of question, a memory address to store the answer
+//				  and a function pointer to verify the answer.
+//Post condition: Asks the question and stores the answer in the memory address provided.
+template <typename T>
+void obtain_answer(char question_type, T* answer, bool (*verify_answer) (T)) {
+	print_question(question_type);
 	std::cin >> *answer;
-	while(!verify_answer_integer(*answer)){
+	while(!verify_answer(*answer)){
 		print_warning_message(question_type);
 		print_question(question_type);
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		std::cin >> *answer;
-	}	
+	}
 }
 
 //Pre condition:  Receives a char that represent the channel chosen.
@@ -208,25 +182,14 @@ char personality_test(){
 	int floor = 0;
 	int scream = 0;
 
-	int channel_points = 0;
-	int food_points = 0;
-	int total_score = 0;
+	obtain_answer<char>(CHANNEL_QUESTION, &channel, verify_answer_channel);
+	obtain_answer<char>(FOOD_QUESTION, &food, verify_answer_food);	
+	obtain_answer<int>(TOWER_QUESTION, &floor, verify_answer_integer);
+	obtain_answer<int>(SCREAM_QUESTION, &scream, verify_answer_integer);
 
-	print_question(CHANNEL_QUESTION);
-	obtain_answer_channel(&channel);
-
-	print_question(FOOD_QUESTION);
-	obtain_answer_food(&food);
-
-	print_question(TOWER_QUESTION);
-	obtain_answer_integer(TOWER_QUESTION, &floor);
-
-	print_question(SCREAM_QUESTION);
-	obtain_answer_integer(SCREAM_QUESTION, &scream);
-
-	channel_points = obtain_points_channel(channel);
-	food_points = obtain_points_food(food);
-	total_score = obtain_total_score(channel_points, food_points, floor, scream);
+	int channel_points = obtain_points_channel(channel);
+	int food_points = obtain_points_food(food);
+	int total_score = obtain_total_score(channel_points, food_points, floor, scream);
 
 	char personality = obtain_personality(total_score);
 	print_personality(personality);
