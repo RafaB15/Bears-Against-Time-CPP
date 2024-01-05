@@ -1,21 +1,15 @@
-#include "coordinate.hpp"
+#include "coordinates.hpp"
 #include <cstdlib>
 
-//Default constructor for Coordinate
-Coordinate::Coordinate(void) {
-    this->x = 0;
-    this->y = 0;
-}
-
 //Constructor for Coordinate
-Coordinate::Coordinate(int x, int y) {
+Coordinates::Coordinates(int x, int y) {
     this->x = x;
     this->y = y;
 }
 
 //Constructor for valid random Coordinate.
 //Receives a map to check if the coordinate is already occupied.
-Coordinate::Coordinate(int max_x, int max_y, MapElement*** map) {
+Coordinates::Coordinates(int max_x, int max_y, MapElement*** map) {
     int x = std::rand() % max_x;
     int y = std::rand() % max_y;
     while (map[x][y] != nullptr) {
@@ -27,11 +21,11 @@ Coordinate::Coordinate(int max_x, int max_y, MapElement*** map) {
 }
 
 //Getter for x
-int Coordinate::get_x(void) {
+int Coordinates::get_x(void) {
     return this->x;
 }
 
 //Getter for y
-int Coordinate::get_y(void) {
+int Coordinates::get_y(void) {
     return this->y;
 }
