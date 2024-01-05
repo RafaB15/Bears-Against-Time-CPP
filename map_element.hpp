@@ -1,11 +1,11 @@
 #ifndef __MAP_ELEMENT_HPP__
 #define __MAP_ELEMENT_HPP__
 
-#include "coordinate.hpp"
+#include "coordinates.hpp"
 
 class MapElement {
     protected:
-        Coordinate coordinate;
+        Coordinates coordinate;
     public:
         //Constructor for MapElement
         MapElement(int x, int y);
@@ -13,7 +13,7 @@ class MapElement {
         //Receives a map to check if the coordinate is already occupied.
         MapElement(int max_x, int max_y, MapElement*** map);
         //Getter for coordinate
-        Coordinate get_coordinate(void);
+        Coordinates get_coordinate(void);
 };
 
 #endif // __MAP_ELEMENT_HPP__
