@@ -8,6 +8,8 @@ class Coordinate {
         int x;
         int y;
     public:
+        //Default constructor for Coordinate
+        Coordinate(void);
         //Constructor for Coordinate
         Coordinate(int x, int y);
         //Constructor for valid random Coordinate.

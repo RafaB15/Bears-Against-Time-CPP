@@ -1,6 +1,12 @@
 #include "coordinate.hpp"
 #include <cstdlib>
 
+//Default constructor for Coordinate
+Coordinate::Coordinate(void) {
+    this->x = 0;
+    this->y = 0;
+}
+
 //Constructor for Coordinate
 Coordinate::Coordinate(int x, int y) {
     this->x = x;
