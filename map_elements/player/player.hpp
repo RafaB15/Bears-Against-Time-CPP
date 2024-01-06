@@ -14,7 +14,7 @@ class Player : public MapElement {
         char last_move;
         MapElement* standing_on;
     public:
-        Player(Map map, char type);
+        Player(Map map);
 };
 
 #endif // __PLAYER_HPP__
