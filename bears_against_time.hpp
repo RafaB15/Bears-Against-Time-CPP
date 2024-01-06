@@ -3,13 +3,14 @@
 
 #include "map_elements/map_element.hpp"
 #include "player_info.hpp"
-#include "constants.hpp"
+#include "utils.hpp"
 
 using namespace Constants;
+using namespace TypeDefinitions;
 
 class BearsAgainstTime {
     private:
-        MapElement*** map;
+        Map map;
         PlayerInfo player_info;
         void populate_map();
         void initialize_map();

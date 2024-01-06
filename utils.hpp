@@ -1,6 +1,9 @@
 #ifndef __CONSTANTS_HPP__
 #define __CONSTANTS_HPP__
 
+#include <vector>
+#include "map_elements/map_element.hpp"
+
 namespace Constants {
     const char TREE  = 'A';
     const char ROCK  = 'R';
@@ -50,5 +53,8 @@ namespace Constants {
     const double TIME_LOST_STONE        = 2;
 }
 
+namespace TypeDefinitions {
+    typedef std::vector<std::vector<MapElement*>> Map;
+}
 
 #endif // __CONSTANTS_HPP__

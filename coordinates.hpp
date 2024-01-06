@@ -2,6 +2,9 @@
 #define __COORDINATES_HPP__
 
 #include "map_elements/map_element.hpp"
+#include "utils.hpp"
+
+using namespace TypeDefinitions;
 
 class Coordinates {
     private:
@@ -12,7 +15,7 @@ class Coordinates {
         Coordinates(int x, int y);
         //Constructor for valid random Coordinate.
         //Receives a map to check if the coordinate is already occupied.
-        Coordinates(MapElement*** map);
+        Coordinates(Map map);
         //Getter for x
         int get_x(void);
         //Getter for y

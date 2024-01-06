@@ -2,9 +2,10 @@
 #define __MAP_ELEMENT_HPP__
 
 #include "../coordinates.hpp"
-#include "../constants.hpp"
+#include "../utils.hpp"
 
 using namespace Constants;
+using namespace TypeDefinitions;
 
 class MapElement {
     protected:
@@ -14,7 +15,7 @@ class MapElement {
     public:
         //Constructor for valid random MapElement.
         //Receives a map to check if the coordinate is already occupied.
-        MapElement(MapElement*** map, char type, bool visible);
+        MapElement(Map map, char type, bool visible);
         //Getter for coordinate
         Coordinates get_coordinates(void);
 };

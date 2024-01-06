@@ -1,6 +1,6 @@
 #include "coordinates.hpp"
 #include <cstdlib>
-#include "constants.hpp"
+#include "utils.hpp"
 
 using namespace Constants;
 
@@ -9,7 +9,7 @@ Coordinates::Coordinates(int x, int y) : x(x), y(y) {}
 
 //Constructor for valid random Coordinate.
 //Receives a map to check if the coordinate is already occupied.
-Coordinates::Coordinates(MapElement*** map) {
+Coordinates::Coordinates(Map map) {
     int x = std::rand() % ROWS;
     int y = std::rand() % COLUMNS;
     while (map[x][y] != nullptr) {
