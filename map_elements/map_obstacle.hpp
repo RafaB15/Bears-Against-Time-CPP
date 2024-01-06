@@ -4,8 +4,6 @@
 #include "map_element.hpp"
 
 class MapObstacle : public MapElement {
-    private:
-        char type;
     public:
         //Constructor for valid random MapObstacle.
         //Receives a map to check if the coordinate is already occupied.

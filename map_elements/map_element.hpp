@@ -9,11 +9,12 @@ using namespace Constants;
 class MapElement {
     protected:
         Coordinates coordinate;
+        char type;
         bool visible;
     public:
         //Constructor for valid random MapElement.
         //Receives a map to check if the coordinate is already occupied.
-        MapElement(MapElement*** map, bool visible);
+        MapElement(MapElement*** map, char type, bool visible);
         //Getter for coordinate
         Coordinates get_coordinates(void);
 };
