@@ -2,7 +2,6 @@
 #define __BEARS_AGAINST_TIME_HPP__
 
 #include "map_elements/map_element.hpp"
-#include "player_info.hpp"
 #include "coordinates.hpp"
 #include "utils.hpp"
 
