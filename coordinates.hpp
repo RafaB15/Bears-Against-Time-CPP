@@ -1,7 +1,7 @@
 #ifndef __COORDINATES_HPP__
 #define __COORDINATES_HPP__
 
-#include "map_element.hpp"
+#include "map_elements/map_element.hpp"
 
 class Coordinates {
     private:
@@ -12,7 +12,7 @@ class Coordinates {
         Coordinates(int x, int y);
         //Constructor for valid random Coordinate.
         //Receives a map to check if the coordinate is already occupied.
-        Coordinates(int max_x, int max_y, MapElement*** map);
+        Coordinates(MapElement*** map);
         //Getter for x
         int get_x(void);
         //Getter for y

@@ -1,20 +1,20 @@
 #include "coordinates.hpp"
 #include <cstdlib>
+#include "constants.hpp"
+
+using namespace Constants;
 
 //Constructor for Coordinate
-Coordinates::Coordinates(int x, int y) {
-    this->x = x;
-    this->y = y;
-}
+Coordinates::Coordinates(int x, int y) : x(x), y(y) {}
 
 //Constructor for valid random Coordinate.
 //Receives a map to check if the coordinate is already occupied.
-Coordinates::Coordinates(int max_x, int max_y, MapElement*** map) {
-    int x = std::rand() % max_x;
-    int y = std::rand() % max_y;
+Coordinates::Coordinates(MapElement*** map) {
+    int x = std::rand() % ROWS;
+    int y = std::rand() % COLUMNS;
     while (map[x][y] != nullptr) {
-        x = rand() % max_x;
-        y = rand() % max_y;
+        x = rand() % ROWS;
+        y = rand() % COLUMNS;
     }
     this->x = x;
     this->y = y;
