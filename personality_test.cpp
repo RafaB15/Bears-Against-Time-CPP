@@ -87,20 +87,21 @@ bool verify_answer_integer(int answer){
 	return ((answer >= MINIMUM_OPTION) && (answer <= MAXIMUM_OPTION));
 }
 
-//Pre condition:  Receives the type of question, a memory address to store the answer
-//				  and a function pointer to verify the answer.
+//Pre condition:  Receives the type of question and a function pointer to verify the answer.
 //Post condition: Asks the question and stores the answer in the memory address provided.
 template <typename T>
-void obtain_answer(char question_type, T* answer, bool (*verify_answer) (T)) {
+T obtain_answer(char question_type, bool (*verify_answer) (T)) {
+	T answer = 0;
 	print_question(question_type);
-	std::cin >> *answer;
-	while(!verify_answer(*answer)){
+	std::cin >> answer;
+	while(!verify_answer(answer)){
 		print_warning_message(question_type);
 		print_question(question_type);
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		std::cin >> *answer;
+		std::cin >> answer;
 	}
+	return answer;
 }
 
 //Pre condition:  Receives a char that represent the channel chosen.
@@ -177,15 +178,10 @@ void print_personality(char personality){
 }
 
 char personality_test(){
-	char channel = 0;
-	char food = 0;
-	int floor = 0;
-	int scream = 0;
-
-	obtain_answer<char>(CHANNEL_QUESTION, &channel, verify_answer_channel);
-	obtain_answer<char>(FOOD_QUESTION, &food, verify_answer_food);	
-	obtain_answer<int>(TOWER_QUESTION, &floor, verify_answer_integer);
-	obtain_answer<int>(SCREAM_QUESTION, &scream, verify_answer_integer);
+	char channel = obtain_answer<char>(CHANNEL_QUESTION, verify_answer_channel);
+	char food = obtain_answer<char>(FOOD_QUESTION, verify_answer_food);	
+	int floor = obtain_answer<int>(TOWER_QUESTION, verify_answer_integer);
+	int scream = obtain_answer<int>(SCREAM_QUESTION, verify_answer_integer);
 
 	int channel_points = obtain_points_channel(channel);
 	int food_points = obtain_points_food(food);
