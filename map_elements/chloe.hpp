@@ -2,6 +2,9 @@
 #define __CHLOE_HPP__
 
 #include "map_element.hpp"
+#include "../utils.hpp"
+
+using namespace TypeDefinitions;
 
 class Chloe : public MapElement {
     public:

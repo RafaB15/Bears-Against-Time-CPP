@@ -2,7 +2,7 @@
 #include "coordinates.hpp"
 #include "map_elements/map_element.hpp"
 #include "map_elements/player/player.hpp"
-#include "map_elements/player/chloe.hpp"
+#include "map_elements/chloe.hpp"
 #include "utils.hpp"
 
 using namespace Constants;
@@ -35,7 +35,7 @@ void initialize_chloe(Map map) {
 
 // Receives a Map object and initializes the obstacles in random positions
 void initialize_obstacles(Map map) {
-    
+
 }
 
 // Constructor for the BearsAgainstTime class
