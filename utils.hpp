@@ -37,7 +37,7 @@ namespace Constants {
     const int MOVEMENTS_FIREWORKS        = 3;
 
     const int AMOUNT_TREES_MAP  = 350;
-    const int AMOUNT_STONES_MAP = 80;
+    const int AMOUNT_ROCKS_MAP = 80;
 
     const int INITIAL_AMOUNT_KOALAS_MAP = 1;
 
