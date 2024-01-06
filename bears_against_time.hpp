@@ -3,6 +3,7 @@
 
 #include "map_elements/map_element.hpp"
 #include "player_info.hpp"
+#include "coordinates.hpp"
 #include "utils.hpp"
 
 using namespace Constants;
@@ -11,8 +12,8 @@ using namespace TypeDefinitions;
 class BearsAgainstTime {
     private:
         Map map;
-        PlayerInfo player_info;
-        void populate_map();
+        Coordinates player_coordinates;
+        Coordinates populate_map();
         void initialize_map();
     public:
         BearsAgainstTime(char character);
