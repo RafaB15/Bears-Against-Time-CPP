@@ -12,8 +12,6 @@ class BearsAgainstTime {
     private:
         Map map;
         Coordinates player_coordinates;
-        Coordinates populate_map();
-        void initialize_map();
     public:
         BearsAgainstTime(char character);
 };
