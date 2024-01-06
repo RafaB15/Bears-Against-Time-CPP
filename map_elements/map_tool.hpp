@@ -5,7 +5,7 @@
 
 class MapTool : public MapElement {
     public:
-        MapTool(MapElement*** map, bool visible, char type);
+        MapTool(Map map, bool visible, char type);
 };
 
 #endif // __MAP_TOOL_HPP__

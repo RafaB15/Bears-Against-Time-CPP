@@ -2,4 +2,4 @@
 
 //Constructor for valid random MapTool.
 //Receives a map to check if the coordinate is already occupied.
-MapTool::MapTool(MapElement*** map, bool visible, char type) : MapElement(map, type, visible){}
+MapTool::MapTool(Map map, bool visible, char type) : MapElement(map, type, visible){}

@@ -12,7 +12,7 @@ class PlayerInfo {
         char last_move;
         MapElement* standing_on;
     public:
-        PlayerInfo(MapElement*** map, char type);
+        PlayerInfo(Map map, char type);
         Coordinates get_coordinates(void);
 };
 
