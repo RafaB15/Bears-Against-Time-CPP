@@ -4,6 +4,9 @@
 
 using namespace Constants;
 
+//Default constructor for Coordinate
+Coordinates::Coordinates(void) : x(0), y(0) {}
+
 //Constructor for Coordinate
 Coordinates::Coordinates(int x, int y) : x(x), y(y) {}
 

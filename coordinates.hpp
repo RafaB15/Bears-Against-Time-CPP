@@ -11,6 +11,8 @@ class Coordinates {
         int x;
         int y;
     public:
+        //Default constructor for Coordinate
+        Coordinates(void);
         //Constructor for Coordinate
         Coordinates(int x, int y);
         //Constructor for valid random Coordinate.
