@@ -2,7 +2,7 @@
 #define __BEARS_AGAINST_TIME_HPP__
 
 #include "map_elements/map_element.hpp"
-#include "coordinates.hpp"
+#include "map_elements/coordinates.hpp"
 #include "utils.hpp"
 
 using namespace Constants;

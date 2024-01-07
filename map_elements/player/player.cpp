@@ -1,4 +1,7 @@
 #include "player.hpp"
+#include "../../utils.hpp"
+
+using namespace Constants;
 
 //Constructor for valid random Player.
 //Receives a map to check if the coordinate is already occupied.

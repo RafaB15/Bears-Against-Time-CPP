@@ -1,5 +1,5 @@
 #include "bears_against_time.hpp"
-#include "coordinates.hpp"
+#include "map_elements/coordinates.hpp"
 #include "map_elements/map_element.hpp"
 #include "map_elements/player/player.hpp"
 #include "map_elements/chloe.hpp"
@@ -15,19 +15,15 @@ using namespace TypeDefinitions;
 
 // Returns a Map object of size ROWSxCOLUMNS initialized with null pointers
 Map initialize_map() {
-    Map map;
-    for (int i = 0; i < ROWS; i++) {
-        for (int j = 0; j < COLUMNS; j++) {
-            map[i][j] = nullptr;
-        }
-    }
+    Map map(ROWS, std::vector<MapElement*>(COLUMNS, nullptr));
+    return map;
 }
 
 // Receives a Map object and initializes the player in a random position
 Coordinates initialize_player(Map map, char character) {
     Player* player = new Player(map);
     Coordinates p_coordinates = player->get_coordinates();
-    map[p_coordinates.get_x()][p_coordinates.get_y()] = player;
+    map[p_coordinates.x][p_coordinates.y] = player;
     return p_coordinates;
 }
 
@@ -35,7 +31,7 @@ Coordinates initialize_player(Map map, char character) {
 void initialize_chloe(Map map) {
     Chloe* chloe = new Chloe(map);
     Coordinates c_coordinates = chloe->get_coordinates();
-    map[c_coordinates.get_x()][c_coordinates.get_y()] = chloe;
+    map[c_coordinates.x][c_coordinates.y] = chloe;
 }
 
 // Receives a Map object and the amount of obstacles to be initialized 
@@ -45,7 +41,7 @@ void initialize_obstacle(Map map, int amount) {
     for (int i = 0; i < amount; i++) {
         T* obstacle = new T(map);
         Coordinates r_coordinates = obstacle->get_coordinates();
-        map[r_coordinates.get_x()][r_coordinates.get_y()] = obstacle;
+        map[r_coordinates.x][r_coordinates.y] = obstacle;
     }
 }
 

@@ -4,6 +4,12 @@
 #include <vector>
 #include "map_elements/map_element.hpp"
 
+class MapElement; //Forward declaration to avoid circular dependency
+
+namespace TypeDefinitions {
+    typedef std::vector<std::vector<MapElement*>> Map;
+}
+
 namespace Constants {
     const char TREE  = 'A';
     const char ROCK  = 'R';
@@ -53,8 +59,5 @@ namespace Constants {
     const double TIME_LOST_STONE        = 2;
 }
 
-namespace TypeDefinitions {
-    typedef std::vector<std::vector<MapElement*>> Map;
-}
 
 #endif // __CONSTANTS_HPP__

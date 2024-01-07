@@ -2,10 +2,8 @@
 #define __PLAYER_HPP__
 
 #include "../map_element.hpp"
-#include "../../coordinates.hpp"
 #include "../../utils.hpp"
 
-using namespace Constants;
 using namespace TypeDefinitions;
 
 class Player : public MapElement {
