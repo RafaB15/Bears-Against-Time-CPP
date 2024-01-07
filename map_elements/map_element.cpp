@@ -17,6 +17,9 @@ MapElement::MapElement(Map map, std::string representation, bool visible = false
     this->coordinates.y = y;
 }
 
+//Constructor for MapElement in specified coordinates.
+MapElement::MapElement(Coordinates coordinates, std::string representation, bool visible = false) : coordinates(coordinates), representation(representation), visible(visible) {}
+
 //Getter for coordinate
 Coordinates MapElement::get_coordinates(void) {
     return this->coordinates;

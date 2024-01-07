@@ -20,6 +20,8 @@ class MapElement {
         //Constructor for valid random MapElement.
         //Receives a map to check if the coordinate is already occupied.
         MapElement(Map map, std::string representation, bool visible);
+        //Constructor for MapElement in specified coordinates.
+        MapElement(Coordinates coordinates, std::string representation, bool visible);
         //Getter for coordinate
         Coordinates get_coordinates(void);
         //Getter for visibility
