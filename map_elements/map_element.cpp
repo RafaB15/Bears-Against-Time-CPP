@@ -21,3 +21,8 @@ MapElement::MapElement(Map map, bool visible = false) : visible(visible) {
 Coordinates MapElement::get_coordinates(void) {
     return this->coordinates;
 }
+
+//Getter for visibility
+bool MapElement::is_visible(void) {
+    return this->visible;
+}

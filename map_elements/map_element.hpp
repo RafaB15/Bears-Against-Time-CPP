@@ -17,6 +17,8 @@ class MapElement {
         MapElement(Map map, bool visible);
         //Getter for coordinate
         Coordinates get_coordinates(void);
+        //Getter for visibility
+        bool is_visible(void);
 };
 
 #endif // __MAP_ELEMENT_HPP__
