@@ -5,7 +5,7 @@ using namespace Constants;
 
 //Constructor for valid random Player.
 //Receives a map to check if the coordinate is already occupied.
-Player::Player(Map map) : MapElement(map, true) {
+Player::Player(Map map) : MapElement(map, PLAYER_REPRESENTATION, true) {
     this->lost_time = 0;
     this->standing_on = nullptr;
     this->last_move = MOVE_RIGHT;

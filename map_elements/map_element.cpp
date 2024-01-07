@@ -6,7 +6,7 @@ using namespace Constants;
 
 //Constructor for valid random MapElement.
 //Receives a map to check if the coordinate is already occupied.
-MapElement::MapElement(Map map, bool visible = false) : visible(visible) {
+MapElement::MapElement(Map map, std::string representation, bool visible = false) : representation(representation), visible(visible) {
     int x = std::rand() % ROWS;
     int y = std::rand() % COLUMNS;
     while (map[x][y] != nullptr) {
@@ -25,4 +25,9 @@ Coordinates MapElement::get_coordinates(void) {
 //Getter for visibility
 bool MapElement::is_visible(void) {
     return this->visible;
+}
+
+//Getter for representation
+std::string MapElement::get_representation(void) {
+    return this->representation;
 }

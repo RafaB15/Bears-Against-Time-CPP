@@ -6,6 +6,8 @@
 
 using namespace TypeDefinitions;
 
+const std::string CHLOE_REPRESENTATION = "\u1F467";
+
 class Chloe : public MapElement {
     public:
         Chloe(Map map);

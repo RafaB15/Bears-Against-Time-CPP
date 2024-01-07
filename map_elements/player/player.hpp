@@ -6,6 +6,8 @@
 
 using namespace TypeDefinitions;
 
+const std::string PLAYER_REPRESENTATION = "\u1F43B";
+
 class Player : public MapElement {
     private:
         double lost_time;

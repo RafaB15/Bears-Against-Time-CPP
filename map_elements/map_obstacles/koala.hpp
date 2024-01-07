@@ -6,6 +6,8 @@
 
 using namespace TypeDefinitions;
 
+const std::string KOALA_REPRESENTATION = "\u1F428";
+
 class Koala : public MapObstacle {
     public:
         Koala(Map map);
