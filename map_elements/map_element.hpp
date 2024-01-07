@@ -8,6 +8,8 @@
 
 using namespace TypeDefinitions;
 
+const std::string HIDDEN_TILE_REPRESENTATION = "\U0001F332";
+
 //Abstract class for all map elements.
 class MapElement {
     protected:

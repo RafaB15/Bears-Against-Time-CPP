@@ -7,4 +7,5 @@ int main(void) {
     char personality = personality_test();
     std::cout << "Your personality is: " << personality << std::endl;
     BearsAgainstTime game(personality);
+    game.print_map();
 }

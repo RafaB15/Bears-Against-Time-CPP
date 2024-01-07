@@ -6,7 +6,7 @@
 
 using namespace TypeDefinitions;
 
-const std::string ROCK_REPRESENTATION = "\u1F5FB";
+const std::string ROCK_REPRESENTATION = "\U0001F5FB";
 
 class Rock : public MapObstacle {
     public:

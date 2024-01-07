@@ -3,7 +3,7 @@
 
 #include "../map_element.hpp"
 
-const std::string MAP_TOOL_REPRESENTATION = "\u1F6E0";
+const std::string MAP_TOOL_REPRESENTATION = "\U0001F6E0";
 
 class MapTool : public MapElement {
     public:

@@ -29,5 +29,8 @@ bool MapElement::is_visible(void) {
 
 //Getter for representation
 std::string MapElement::get_representation(void) {
+    if (!this->visible) {
+        return HIDDEN_TILE_REPRESENTATION;
+    }
     return this->representation;
 }
