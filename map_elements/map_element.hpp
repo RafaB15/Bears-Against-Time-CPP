@@ -1,15 +1,15 @@
 #ifndef __MAP_ELEMENT_HPP__
 #define __MAP_ELEMENT_HPP__
 
-#include "../coordinates.hpp"
+#include "coordinates.hpp"
 #include "../utils.hpp"
 
-using namespace Constants;
 using namespace TypeDefinitions;
 
+//Abstract class for all map elements.
 class MapElement {
     protected:
-        Coordinates coordinate;
+        Coordinates coordinates;
         bool visible;
     public:
         //Constructor for valid random MapElement.
