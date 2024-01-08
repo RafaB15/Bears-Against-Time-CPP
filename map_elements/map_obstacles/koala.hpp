@@ -8,7 +8,7 @@ using namespace TypeDefinitions;
 
 class Koala : public MapObstacle {
     public:
-        Koala(Map map);
+        Koala(Map map, Coordinates player_coordinates);
 };
 
 #endif // __KOALA_HPP__

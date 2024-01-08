@@ -8,7 +8,7 @@ using namespace TypeDefinitions;
 
 class Rock : public MapObstacle {
     public:
-        Rock(Map map);
+        Rock(Map map, Coordinates player_coordinates);
 };
 
 #endif // __ROCK_HPP__

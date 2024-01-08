@@ -1,19 +1,23 @@
 #ifndef __PLAYER_HPP__
 #define __PLAYER_HPP__
 
-#include "../map_element.hpp"
-#include "../../utils.hpp"
+#include "../utils.hpp"
 
 using namespace TypeDefinitions;
 
-class Player : public MapElement {
+class Player {
     private:
+        Coordinates coordinates;
+        std::string representation;
         double lost_time;
         char last_move;
-        MapElement* standing_on;
     public:
         //Constructor for a Player with valid coordinates.
-        Player(Map map);
+        Player(void);
+        //Getter for coordinates
+        Coordinates get_coordinates(void);
+        //Getter for representation
+        std::string get_representation(void);
         //Getter for lost_time
         double get_lost_time(void);
 };  

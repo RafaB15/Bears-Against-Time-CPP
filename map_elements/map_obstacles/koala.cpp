@@ -4,4 +4,4 @@
 using namespace Constants;
 
 // Constructor for the Koala class
-Koala::Koala(Map map) : MapObstacle(map, KOALA_REPRESENTATION) {}
+Koala::Koala(Map map, Coordinates player_coordinates) : MapObstacle(map, KOALA_REPRESENTATION, player_coordinates) {}

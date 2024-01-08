@@ -3,7 +3,7 @@
 
 #include <string>
 
-#include "coordinates.hpp"
+#include "../coordinates.hpp"
 #include "../utils.hpp"
 
 using namespace TypeDefinitions;
@@ -17,7 +17,7 @@ class MapElement {
     public:
         //Constructor for valid random MapElement.
         //Receives a map to check if the coordinate is already occupied.
-        MapElement(Map map, std::string representation, bool visible);
+        MapElement(Map map, std::string representation, Coordinates player_coordinates, bool visible);
         //Constructor for MapElement in specified coordinates.
         MapElement(Coordinates coordinates, std::string representation, bool visible);
         //Destructor

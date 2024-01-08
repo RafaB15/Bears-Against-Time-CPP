@@ -2,9 +2,9 @@
 #define __GAME_HPP__
 
 #include "map_elements/map_element.hpp"
-#include "map_elements/player/player.hpp"
+#include "player/player.hpp"
 #include "map_elements/chloe.hpp"
-#include "map_elements/coordinates.hpp"
+#include "coordinates.hpp"
 #include "utils.hpp"
 
 using namespace Constants;

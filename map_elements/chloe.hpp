@@ -10,7 +10,7 @@ class Chloe : public MapElement {
     protected:
         bool found;
     public:
-        Chloe(Map map);
+        Chloe(Map map, Coordinates player_coordinates);
 };
 
 #endif // __CHLOE_HPP__

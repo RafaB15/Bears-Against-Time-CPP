@@ -1,7 +1,7 @@
 #include "game.hpp"
-#include "map_elements/coordinates.hpp"
+#include "coordinates.hpp"
 #include "map_elements/map_element.hpp"
-#include "map_elements/player/player.hpp"
+#include "player/player.hpp"
 #include "map_elements/chloe.hpp"
 #include "map_elements/empty_space.hpp"
 #include "map_elements/map_obstacles/map_obstacle.hpp"
@@ -38,16 +38,13 @@ void replace_and_free(Map& map, Coordinates coordinates, MapElement* new_element
 }
 
 // Receives a Map object and initializes the player in a random position
-Player* initialize_player(Map& map, char character) {
-    Player* player = new Player(map);
-    Coordinates p_coordinates = player->get_coordinates();
-    replace_and_free(map, p_coordinates, player);
-    return player;
+Player* initialize_player(char character) {
+    return new Player();
 }
 
 // Receives a Map object and initializes Chloe in a random position
-Chloe* initialize_chloe(Map& map) {
-    Chloe* chloe = new Chloe(map);
+Chloe* initialize_chloe(Map& map, Coordinates player_coordinates) {
+    Chloe* chloe = new Chloe(map, player_coordinates);
     Coordinates c_coordinates = chloe->get_coordinates();
     replace_and_free(map, c_coordinates, chloe);
     return chloe;
@@ -56,25 +53,25 @@ Chloe* initialize_chloe(Map& map) {
 // Receives a Map object and the amount of obstacles to be initialized 
 // and initializes the obstacles in random positions
 template <typename T>
-void initialize_element(Map& map, int amount) {
+void initialize_element(Map& map, Coordinates player_coordinates, int amount) {
     for (int i = 0; i < amount; i++) {
-        T* obstacle = new T(map);
+        T* obstacle = new T(map, player_coordinates);
         Coordinates r_coordinates = obstacle->get_coordinates();
         replace_and_free(map, r_coordinates, obstacle);
     }
 }
 
 // Receives a Map object and initializes the obstacles in random positions
-void initialize_obstacles(Map& map) {
-    initialize_element<Rock>(map, AMOUNT_ROCKS_MAP);
-    initialize_element<Tree>(map, AMOUNT_TREES_MAP);
-    initialize_element<Koala>(map, INITIAL_AMOUNT_KOALAS_MAP);    
+void initialize_obstacles(Map& map, Coordinates player_coordinates) {
+    initialize_element<Rock>(map, player_coordinates, AMOUNT_ROCKS_MAP);
+    initialize_element<Tree>(map, player_coordinates, AMOUNT_TREES_MAP);
+    initialize_element<Koala>(map, player_coordinates, INITIAL_AMOUNT_KOALAS_MAP);    
 }
 
-void initialize_tools(Map& map) {
-    initialize_element<MapBattery>(map, AMOUNT_BATTERIES_MAP);
-    initialize_element<MapCandle>(map, AMOUNT_CANDLES_MAP);
-    initialize_element<MapFireworks>(map, AMOUNT_FIREWORKS_MAP);
+void initialize_tools(Map& map, Coordinates player_coordinates) {
+    initialize_element<MapBattery>(map, player_coordinates, AMOUNT_BATTERIES_MAP);
+    initialize_element<MapCandle>(map, player_coordinates, AMOUNT_CANDLES_MAP);
+    initialize_element<MapFireworks>(map, player_coordinates, AMOUNT_FIREWORKS_MAP);
 }
 
 // Constructor for the Game class
@@ -82,10 +79,13 @@ void initialize_tools(Map& map) {
 // with all the elements needed for the game
 Game::Game(char character) {
     this->map = initialize_map();
-    this->player = initialize_player(this->map, character);
-    this->chloe= initialize_chloe(this->map);
-    initialize_obstacles(this->map);
-    initialize_tools(this->map);
+    this->player = initialize_player(character);
+
+    Coordinates player_coordinates = this->player->get_coordinates();
+
+    this->chloe= initialize_chloe(this->map, player_coordinates);
+    initialize_obstacles(this->map, player_coordinates);
+    initialize_tools(this->map, player_coordinates);
 }
 
 // Prints the map to the screen

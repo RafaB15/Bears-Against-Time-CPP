@@ -8,7 +8,7 @@ using namespace TypeDefinitions;
 
 class Tree : public MapObstacle {
     public:
-        Tree(Map map);
+        Tree(Map map, Coordinates player_coordinates);
 };
 
 #endif // __TREE_HPP__
