@@ -106,6 +106,10 @@ void Game::print_map(void) {
     for (int i = 0; i < ROWS; i++) {
         std::cout << "  ";
         for (int j = 0; j < COLUMNS; j++) {
+            if(this->player->get_coordinates() == Coordinates{i, j}) {
+                std::cout << this->player->get_representation() << " ";
+                continue;
+            } 
             std::cout << this->map[i][j]->get_representation() << " ";
         }
         std::cout << std::endl;

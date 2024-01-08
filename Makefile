@@ -14,7 +14,7 @@ SOURCES += $(wildcard map_elements/map_obstacles/*.cpp)
 SOURCES += $(wildcard map_elements/map_tools/*.cpp)
 
 # Use wildcard to get all .cpp files in player directory
-SOURCES += $(wildcard map_elements/player/*.cpp)
+SOURCES += $(wildcard player/*.cpp)
 
 # Use wildcard to get all .cpp files in player_tools directory
 SOURCES += $(wildcard player_tools/*.cpp)

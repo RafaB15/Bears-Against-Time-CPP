@@ -1,9 +1,8 @@
 #ifndef __PLAYER_HPP__
 #define __PLAYER_HPP__
 
-#include "../utils.hpp"
-
-using namespace TypeDefinitions;
+#include "../coordinates.hpp"
+#include <string>
 
 class Player {
     private:

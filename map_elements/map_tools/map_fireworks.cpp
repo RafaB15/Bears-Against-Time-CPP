@@ -4,4 +4,4 @@
 using namespace Constants;
 
 // Constructor for the MapFireworks class
-MapFireworks::MapFireworks(Map map) : MapTool(map, FIREWORKS_REPRESENTATION) {}
+MapFireworks::MapFireworks(Map map, Coordinates player_coordinates) : MapTool(map, FIREWORKS_REPRESENTATION, player_coordinates) {}

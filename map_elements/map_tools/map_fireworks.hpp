@@ -7,7 +7,7 @@ using namespace TypeDefinitions;
 
 class MapFireworks : public MapTool {
     public:
-        MapFireworks(Map map);
+        MapFireworks(Map map, Coordinates player_coordinates);
 };
 
 #endif // __MAP_FIREWORKS_HPP__

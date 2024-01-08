@@ -8,7 +8,7 @@ using namespace TypeDefinitions;
 
 class MapTool : public MapElement {
     public:
-        MapTool(Map map, std::string representation);
+        MapTool(Map map, std::string representation, Coordinates player_coordinates);
 };
 
 #endif // __MAP_TOOL_HPP__

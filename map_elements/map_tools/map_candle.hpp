@@ -7,7 +7,7 @@ using namespace TypeDefinitions;
 
 class MapCandle : public MapTool {
     public:
-        MapCandle(Map map);
+        MapCandle(Map map, Coordinates player_coordinates);
 };
 
 #endif // __CANDLE_HPP__

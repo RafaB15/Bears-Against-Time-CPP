@@ -7,7 +7,7 @@ using namespace TypeDefinitions;
 
 class MapBattery : public MapTool {
     public:
-        MapBattery(Map map);
+        MapBattery(Map map, Coordinates player_coordinates);
 };
 
 #endif // __MAP_BATTERY_HPP__

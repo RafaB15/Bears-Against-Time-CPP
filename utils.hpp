@@ -3,7 +3,6 @@
 
 #include <vector>
 #include <string>
-#include "map_elements/map_element.hpp"
 
 class MapElement; //Forward declaration to avoid circular dependency
 
