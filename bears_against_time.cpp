@@ -8,6 +8,9 @@
 #include "map_elements/map_obstacles/rock.hpp"
 #include "map_elements/map_obstacles/tree.hpp"
 #include "map_elements/map_obstacles/koala.hpp"
+#include "map_elements/map_tools/map_battery.hpp"
+#include "map_elements/map_tools/map_candle.hpp"
+#include "map_elements/map_tools/map_fireworks.hpp"
 
 #include <iostream>
 #include "utils.hpp"
@@ -56,7 +59,7 @@ void initialize_chloe(Map& map) {
 // Receives a Map object and the amount of obstacles to be initialized 
 // and initializes the obstacles in random positions
 template <typename T>
-void initialize_obstacle(Map& map, int amount) {
+void initialize_element(Map& map, int amount) {
     for (int i = 0; i < amount; i++) {
         T* obstacle = new T(map);
         Coordinates r_coordinates = obstacle->get_coordinates();
@@ -66,9 +69,15 @@ void initialize_obstacle(Map& map, int amount) {
 
 // Receives a Map object and initializes the obstacles in random positions
 void initialize_obstacles(Map& map) {
-    initialize_obstacle<Rock>(map, AMOUNT_ROCKS_MAP);
-    initialize_obstacle<Tree>(map, AMOUNT_TREES_MAP);
-    initialize_obstacle<Koala>(map, INITIAL_AMOUNT_KOALAS_MAP);    
+    initialize_element<Rock>(map, AMOUNT_ROCKS_MAP);
+    initialize_element<Tree>(map, AMOUNT_TREES_MAP);
+    initialize_element<Koala>(map, INITIAL_AMOUNT_KOALAS_MAP);    
+}
+
+void initialize_tools(Map& map) {
+    initialize_element<MapBattery>(map, AMOUNT_BATTERIES_MAP);
+    initialize_element<MapCandle>(map, AMOUNT_CANDLES_MAP);
+    initialize_element<MapFireworks>(map, AMOUNT_FIREWORKS_MAP);
 }
 
 // Constructor for the BearsAgainstTime class
@@ -79,6 +88,7 @@ BearsAgainstTime::BearsAgainstTime(char character) {
     this->player_coordinates = initialize_player(this->map, character);
     initialize_chloe(this->map);
     initialize_obstacles(this->map);
+    initialize_tools(this->map);
 }
 
 // Prints the map to the screen

@@ -1,4 +1,5 @@
 #include "map_tool.hpp"
+#include "../../utils.hpp"
 
 //Constructor for valid random MapTool.
 //Receives a map to check if the coordinate is already occupied.

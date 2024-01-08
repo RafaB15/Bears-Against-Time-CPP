@@ -2,6 +2,9 @@
 #define __MAP_OBSTACLE_HPP__
 
 #include "../map_element.hpp"
+#include "../../utils.hpp"
+
+using namespace TypeDefinitions;
 
 class MapObstacle : public MapElement {
     public:

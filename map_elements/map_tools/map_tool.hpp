@@ -2,6 +2,9 @@
 #define __MAP_TOOL_HPP__
 
 #include "../map_element.hpp"
+#include "../../utils.hpp"
+
+using namespace TypeDefinitions;
 
 class MapTool : public MapElement {
     public:

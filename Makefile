@@ -14,7 +14,11 @@ SOURCES = \
 	map_elements/map_obstacles/tree.cpp \
 	map_elements/map_obstacles/koala.cpp \
 	map_elements/map_tools/map_tool.cpp \
-	map_elements/player/player.cpp
+	map_elements/player/player.cpp \
+	map_elements/map_tools/map_tool.cpp \
+	map_elements/map_tools/map_battery.cpp \
+	map_elements/map_tools/map_candle.cpp \
+	map_elements/map_tools/map_fireworks.cpp \
 
 # Name of the output executable
 EXECUTABLE = game

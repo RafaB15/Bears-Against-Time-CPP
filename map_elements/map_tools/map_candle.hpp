@@ -1,7 +1,6 @@
 #ifndef __CANDLE_HPP__
 #define __CANDLE_HPP__
 
-#include "../../utils.hpp"
 #include "map_tool.hpp"
 
 using namespace TypeDefinitions;
