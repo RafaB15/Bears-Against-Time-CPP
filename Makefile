@@ -1,24 +1,23 @@
 CXX = g++
 CXXFLAGS = -Wall -Wconversion -Werror
 
-# List of source files (replace file.cpp file2.cpp ... filen.cpp with your actual filenames)
-SOURCES = \
-	game.cpp \
-	personality_test.cpp \
-	bears_against_time.cpp \
-	map_elements/map_element.cpp \
-	map_elements/chloe.cpp \
-	map_elements/empty_space.cpp \
-	map_elements/map_obstacles/map_obstacle.cpp \
-	map_elements/map_obstacles/rock.cpp \
-	map_elements/map_obstacles/tree.cpp \
-	map_elements/map_obstacles/koala.cpp \
-	map_elements/map_tools/map_tool.cpp \
-	map_elements/player/player.cpp \
-	map_elements/map_tools/map_tool.cpp \
-	map_elements/map_tools/map_battery.cpp \
-	map_elements/map_tools/map_candle.cpp \
-	map_elements/map_tools/map_fireworks.cpp \
+# Use wildcard to get all .cpp files in the current directory
+SOURCES = $(wildcard *.cpp)
+
+# Use wildcard to get all .cpp files in map_elements directory
+SOURCES += $(wildcard map_elements/*.cpp)
+
+# Use wildcard to get all .cpp files in map_obstacles directory
+SOURCES += $(wildcard map_elements/map_obstacles/*.cpp)
+
+# Use wildcard to get all .cpp files in map_tools directory
+SOURCES += $(wildcard map_elements/map_tools/*.cpp)
+
+# Use wildcard to get all .cpp files in player directory
+SOURCES += $(wildcard map_elements/player/*.cpp)
+
+# Use wildcard to get all .cpp files in player_tools directory
+SOURCES += $(wildcard player_tools/*.cpp)
 
 # Name of the output executable
 EXECUTABLE = game
