@@ -6,8 +6,6 @@
 
 using namespace TypeDefinitions;
 
-const std::string TREE_REPRESENTATION = "\U0001F333";
-
 class Tree : public MapObstacle {
     public:
         Tree(Map map);

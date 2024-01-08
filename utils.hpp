@@ -2,6 +2,7 @@
 #define __CONSTANTS_HPP__
 
 #include <vector>
+#include <string>
 #include "map_elements/map_element.hpp"
 
 class MapElement; //Forward declaration to avoid circular dependency
@@ -11,20 +12,15 @@ namespace TypeDefinitions {
 }
 
 namespace Constants {
-    const char TREE  = 'A';
-    const char ROCK  = 'R';
-    const char KOALA = 'K';
 
-    const char LANTERN   = 'L';
-    const char CANDLE    = 'V';
-    const char FIREWORKS = 'E';
-    const char BATTERY   = 'B';
-
-    const char ICE     = 'I';
-    const char GRIZZLY = 'G';
-    const char PANDA   = 'P';
-    const char CHLOE   = 'C';
-
+    const std::string HIDDEN_TILE_REPRESENTATION = "\U0001F7E9";
+    const std::string EMPTY_SPACE_REPRESENTATION = "\U00002B1C";
+    const std::string PLAYER_REPRESENTATION = "\U0001F43B";
+    const std::string CHLOE_REPRESENTATION = "\U0001F467";
+    const std::string KOALA_REPRESENTATION = "\U0001F428";
+    const std::string ROCK_REPRESENTATION = "\U0001F5FB";
+    const std::string TREE_REPRESENTATION = "\U0001F333";
+    
     const char MOVE_UP    = 'W';
     const char MOVE_LEFT  = 'A';
     const char MOVE_DOWN  = 'S';

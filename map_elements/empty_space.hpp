@@ -3,8 +3,6 @@
 
 #include "map_element.hpp"
 
-const std::string EMPTY_SPACE_REPRESENTATION = "\U00002B1C";
-
 class EmptySpace : public MapElement {
     public:
         EmptySpace(Coordinates coordinates);

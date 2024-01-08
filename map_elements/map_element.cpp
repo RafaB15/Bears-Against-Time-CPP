@@ -4,6 +4,8 @@
 #include <cstdlib>
 
 #include <iostream>
+
+#include "../utils.hpp"
 using namespace Constants;
 
 //Constructor for valid random MapElement.
