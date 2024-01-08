@@ -3,6 +3,7 @@
 #include "map_elements/map_element.hpp"
 #include "map_elements/player/player.hpp"
 #include "map_elements/chloe.hpp"
+#include "map_elements/empty_space.hpp"
 #include "map_elements/map_obstacles/map_obstacle.hpp"
 #include "map_elements/map_obstacles/rock.hpp"
 #include "map_elements/map_obstacles/tree.hpp"
@@ -16,23 +17,40 @@ using namespace TypeDefinitions;
 
 // Returns a Map object of size ROWSxCOLUMNS initialized with null pointers
 Map initialize_map() {
-    Map map(ROWS, std::vector<MapElement*>(COLUMNS, nullptr));
+    Map map(ROWS, std::vector<MapElement*>(COLUMNS));
+    for (int i = 0; i < ROWS; ++i) {
+        for (int j = 0; j < COLUMNS; ++j) {
+            map[i][j] = new EmptySpace({i, j});
+        }
+    }
     return map;
+}
+
+// Receives a Map object, a Coordinates object and a MapElement pointer
+// and replaces the element in the map with the new element
+// freeing the memory of the old element
+void replace_and_free(Map& map, Coordinates coordinates, MapElement* new_element) {
+    delete map[coordinates.x][coordinates.y];
+    map[coordinates.x][coordinates.y] = new_element;
 }
 
 // Receives a Map object and initializes the player in a random position
 Coordinates initialize_player(Map& map, char character) {
     Player* player = new Player(map);
     Coordinates p_coordinates = player->get_coordinates();
-    map[p_coordinates.x][p_coordinates.y] = player;
+    replace_and_free(map, p_coordinates, player);
     return p_coordinates;
 }
 
 // Receives a Map object and initializes Chloe in a random position
 void initialize_chloe(Map& map) {
+    std::cout << "Initializing Chloe..." << std::endl;
     Chloe* chloe = new Chloe(map);
+    std::cout << "Chloe initialized!" << std::endl;
     Coordinates c_coordinates = chloe->get_coordinates();
-    map[c_coordinates.x][c_coordinates.y] = chloe;
+    std::cout << "Chloe coordinates: " << c_coordinates.x << ", " << c_coordinates.y << std::endl;
+    replace_and_free(map, c_coordinates, chloe);
+    std::cout << "Chloe replaced!" << std::endl;
 }
 
 // Receives a Map object and the amount of obstacles to be initialized 
@@ -42,7 +60,7 @@ void initialize_obstacle(Map& map, int amount) {
     for (int i = 0; i < amount; i++) {
         T* obstacle = new T(map);
         Coordinates r_coordinates = obstacle->get_coordinates();
-        map[r_coordinates.x][r_coordinates.y] = obstacle;
+        replace_and_free(map, r_coordinates, obstacle);
     }
 }
 
@@ -70,11 +88,7 @@ void BearsAgainstTime::print_map(void) {
     for (int i = 0; i < ROWS; i++) {
         std::cout << "  ";
         for (int j = 0; j < COLUMNS; j++) {
-            if (this->map[i][j] == nullptr) {
-                std::cout << HIDDEN_TILE_REPRESENTATION << " ";
-            } else {
-                std::cout << this->map[i][j]->get_representation() << " ";
-            }
+            std::cout << this->map[i][j]->get_representation() << " ";
         }
         std::cout << std::endl;
     }

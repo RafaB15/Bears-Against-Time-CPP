@@ -8,6 +8,7 @@ SOURCES = \
 	bears_against_time.cpp \
 	map_elements/map_element.cpp \
 	map_elements/chloe.cpp \
+	map_elements/empty_space.cpp \
 	map_elements/map_obstacles/map_obstacle.cpp \
 	map_elements/map_obstacles/rock.cpp \
 	map_elements/map_obstacles/tree.cpp \

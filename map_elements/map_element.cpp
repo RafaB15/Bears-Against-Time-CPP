@@ -1,7 +1,9 @@
 #include "map_element.hpp"
+#include "empty_space.hpp"
 #include "../utils.hpp"
 #include <cstdlib>
 
+#include <iostream>
 using namespace Constants;
 
 //Constructor for valid random MapElement.
@@ -9,7 +11,7 @@ using namespace Constants;
 MapElement::MapElement(Map map, std::string representation, bool visible = false) : representation(representation), visible(visible) {
     int x = std::rand() % ROWS;
     int y = std::rand() % COLUMNS;
-    while (map[x][y] != nullptr) {
+    while (map[x][y]->get_representation() != EMPTY_SPACE_REPRESENTATION) {
         x = rand() % ROWS;
         y = rand() % COLUMNS;
     }
