@@ -21,6 +21,8 @@ class Game {
     public:
         // Constructor
         Game(char character);
+        // Destructor
+        ~Game(void);
         // Prints the map to the screen
         void print_map(void);
         // Returns true if the game is over

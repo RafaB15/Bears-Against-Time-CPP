@@ -88,6 +88,17 @@ Game::Game(char character) {
     initialize_tools(this->map, player_coordinates);
 }
 
+// Destructor for the Game class
+Game::~Game(void) {
+    delete this->player;
+    delete this->chloe;
+    for (int i = 0; i < ROWS; ++i) {
+        for (int j = 0; j < COLUMNS; ++j) {
+            delete this->map[i][j];
+        }
+    }
+}
+
 // Prints the map to the screen
 void Game::print_map(void) {
     std::cout << "  ";
