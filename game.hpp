@@ -1,5 +1,5 @@
-#ifndef __BEARS_AGAINST_TIME_HPP__
-#define __BEARS_AGAINST_TIME_HPP__
+#ifndef __GAME_HPP__
+#define __GAME_HPP__
 
 #include "map_elements/map_element.hpp"
 #include "map_elements/coordinates.hpp"
@@ -8,7 +8,7 @@
 using namespace Constants;
 using namespace TypeDefinitions;
 
-class BearsAgainstTime {
+class Game {
     private:
         // Matrix of pointers to MapElements
         Map map;
@@ -18,9 +18,9 @@ class BearsAgainstTime {
         Coordinates chloe_coordinates;
     public:
         // Constructor
-        BearsAgainstTime(char character);
+        Game(char character);
         // Prints the map to the screen
         void print_map(void);
 };
 
-#endif // __BEARS_AGAINST_TIME_HPP__
+#endif // __GAME_HPP__
