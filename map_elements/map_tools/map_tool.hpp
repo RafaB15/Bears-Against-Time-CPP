@@ -3,11 +3,9 @@
 
 #include "../map_element.hpp"
 
-const std::string MAP_TOOL_REPRESENTATION = "\U0001F6E0";
-
 class MapTool : public MapElement {
     public:
-        MapTool(Map map, bool visible);
+        MapTool(Map map, std::string representation);
 };
 
 #endif // __MAP_TOOL_HPP__
