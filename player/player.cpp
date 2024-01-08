@@ -1,5 +1,6 @@
 #include "player.hpp"
 #include "../utils.hpp"
+#include <cstdlib>
 
 using namespace Constants;
 

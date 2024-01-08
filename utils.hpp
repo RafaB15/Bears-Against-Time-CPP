@@ -17,7 +17,7 @@ namespace Constants {
     const std::string PLAYER_REPRESENTATION = "\U0001F43B";
     const std::string CHLOE_REPRESENTATION = "\U0001F467";
     const std::string KOALA_REPRESENTATION = "\U0001F428";
-    const std::string ROCK_REPRESENTATION = "\U0001F5FB";
+    const std::string ROCK_REPRESENTATION = "\U0001FAA8";
     const std::string TREE_REPRESENTATION = "\U0001F333";
     const std::string BATTERY_REPRESENTATION = "\U0001F50B";
     const std::string CANDLE_REPRESENTATION = " \U0001F56F";
