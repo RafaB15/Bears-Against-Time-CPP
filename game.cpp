@@ -38,19 +38,19 @@ void replace_and_free(Map& map, Coordinates coordinates, MapElement* new_element
 }
 
 // Receives a Map object and initializes the player in a random position
-Coordinates initialize_player(Map& map, char character) {
+Player* initialize_player(Map& map, char character) {
     Player* player = new Player(map);
     Coordinates p_coordinates = player->get_coordinates();
     replace_and_free(map, p_coordinates, player);
-    return p_coordinates;
+    return player;
 }
 
 // Receives a Map object and initializes Chloe in a random position
-Coordinates initialize_chloe(Map& map) {
+Chloe* initialize_chloe(Map& map) {
     Chloe* chloe = new Chloe(map);
     Coordinates c_coordinates = chloe->get_coordinates();
     replace_and_free(map, c_coordinates, chloe);
-    return c_coordinates;
+    return chloe;
 }
 
 // Receives a Map object and the amount of obstacles to be initialized 
@@ -82,8 +82,8 @@ void initialize_tools(Map& map) {
 // with all the elements needed for the game
 Game::Game(char character) {
     this->map = initialize_map();
-    this->player_coordinates = initialize_player(this->map, character);
-    this->chloe_coordinates = initialize_chloe(this->map);
+    this->player = initialize_player(this->map, character);
+    this->chloe= initialize_chloe(this->map);
     initialize_obstacles(this->map);
     initialize_tools(this->map);
 }
@@ -99,4 +99,19 @@ void Game::print_map(void) {
         }
         std::cout << std::endl;
     }
+}
+
+// Returns true if the game is over
+bool Game::is_over(void) {
+    return this->player->get_coordinates() == this->chloe->get_coordinates();
+}
+
+// Gets the player
+Player* Game::get_player(void) {
+    return this->player;
+}
+
+// Returns the time the player lost in the game
+double Game::get_time(void) {
+    return this->player->get_lost_time();
 }

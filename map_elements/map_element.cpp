@@ -24,6 +24,9 @@ MapElement::MapElement(Map map, std::string representation, bool visible = false
 //Constructor for MapElement in specified coordinates.
 MapElement::MapElement(Coordinates coordinates, std::string representation, bool visible = false) : coordinates(coordinates), representation(representation), visible(visible) {}
 
+//Destructor
+MapElement::~MapElement(void) {}
+
 //Getter for coordinate
 Coordinates MapElement::get_coordinates(void) {
     return this->coordinates;

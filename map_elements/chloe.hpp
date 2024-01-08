@@ -7,6 +7,8 @@
 using namespace TypeDefinitions;
 
 class Chloe : public MapElement {
+    protected:
+        bool found;
     public:
         Chloe(Map map);
 };

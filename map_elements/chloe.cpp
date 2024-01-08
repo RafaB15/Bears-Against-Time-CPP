@@ -4,4 +4,6 @@
 using namespace Constants;
 
 // Constructor for the Chloe class
-Chloe::Chloe(Map map) : MapElement(map, CHLOE_REPRESENTATION, true) {}
+Chloe::Chloe(Map map) : MapElement(map, CHLOE_REPRESENTATION, true) {
+    this->found = false;
+}

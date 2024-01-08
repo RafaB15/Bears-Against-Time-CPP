@@ -20,6 +20,8 @@ class MapElement {
         MapElement(Map map, std::string representation, bool visible);
         //Constructor for MapElement in specified coordinates.
         MapElement(Coordinates coordinates, std::string representation, bool visible);
+        //Destructor
+        virtual ~MapElement(void);
         //Getter for coordinate
         Coordinates get_coordinates(void);
         //Getter for visibility

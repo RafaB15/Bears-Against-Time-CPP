@@ -12,7 +12,10 @@ class Player : public MapElement {
         char last_move;
         MapElement* standing_on;
     public:
+        //Constructor for a Player with valid coordinates.
         Player(Map map);
-};
+        //Getter for lost_time
+        double get_lost_time(void);
+};  
 
 #endif // __PLAYER_HPP__
