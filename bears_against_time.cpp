@@ -46,14 +46,11 @@ Coordinates initialize_player(Map& map, char character) {
 }
 
 // Receives a Map object and initializes Chloe in a random position
-void initialize_chloe(Map& map) {
-    std::cout << "Initializing Chloe..." << std::endl;
+Coordinates initialize_chloe(Map& map) {
     Chloe* chloe = new Chloe(map);
-    std::cout << "Chloe initialized!" << std::endl;
     Coordinates c_coordinates = chloe->get_coordinates();
-    std::cout << "Chloe coordinates: " << c_coordinates.x << ", " << c_coordinates.y << std::endl;
     replace_and_free(map, c_coordinates, chloe);
-    std::cout << "Chloe replaced!" << std::endl;
+    return c_coordinates;
 }
 
 // Receives a Map object and the amount of obstacles to be initialized 
@@ -86,7 +83,7 @@ void initialize_tools(Map& map) {
 BearsAgainstTime::BearsAgainstTime(char character) {
     this->map = initialize_map();
     this->player_coordinates = initialize_player(this->map, character);
-    initialize_chloe(this->map);
+    this->chloe_coordinates = initialize_chloe(this->map);
     initialize_obstacles(this->map);
     initialize_tools(this->map);
 }

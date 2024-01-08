@@ -14,6 +14,8 @@ class BearsAgainstTime {
         Map map;
         // Player's coordinates
         Coordinates player_coordinates;
+        // Chloe's coordinates
+        Coordinates chloe_coordinates;
     public:
         // Constructor
         BearsAgainstTime(char character);
