@@ -31,6 +31,8 @@ class Game {
         double get_time(void);
         // Gets the player
         Player* get_player(void);
+        // Takes a command and changes the game accordingly
+        void play(char command);
 };
 
 #endif // __GAME_HPP__

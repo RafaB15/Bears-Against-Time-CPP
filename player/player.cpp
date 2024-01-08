@@ -23,11 +23,48 @@ Coordinates Player::get_coordinates(void) {
 }
 
 //Getter for representation
-std::string Player::get_representation(void) {
+std::string Player::get_map_representation(void) {
     return this->representation;
 }
 
 //Getter for lost_time
 double Player::get_lost_time(void) {
     return this->lost_time;
+}
+
+//Getter for last_move
+char Player::get_last_move(void) {
+    return this->last_move;
+}
+
+//Move up
+void Player::move_up(void) {
+    if(this->coordinates.x - 1 >= 0) {
+        this->coordinates.x--;
+    }
+    this->last_move = MOVE_UP;
+}
+
+//Move down
+void Player::move_down(void) {
+    if(this->coordinates.x + 1 < ROWS) {
+        this->coordinates.x++;
+    }
+    this->last_move = MOVE_DOWN;
+}
+
+//Move left
+void Player::move_left(void) {
+    if(this->coordinates.y - 1 >= 0) {
+        this->coordinates.y--;
+    }
+    this->last_move = MOVE_LEFT;
+}
+
+//Move right
+void Player::move_right(void) {
+    if(this->coordinates.y + 1 < COLUMNS) {
+        this->coordinates.y++;
+    }
+    this->last_move = MOVE_RIGHT;
 }

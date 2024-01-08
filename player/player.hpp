@@ -16,9 +16,19 @@ class Player {
         //Getter for coordinates
         Coordinates get_coordinates(void);
         //Getter for representation
-        std::string get_representation(void);
+        std::string get_map_representation(void);
         //Getter for lost_time
         double get_lost_time(void);
+        //Getter for last_move
+        char get_last_move(void);
+        //Move up
+        void move_up(void);
+        //Move down
+        void move_down(void);
+        //Move left
+        void move_left(void);
+        //Move right
+        void move_right(void);
 };  
 
 #endif // __PLAYER_HPP__

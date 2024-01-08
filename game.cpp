@@ -55,9 +55,9 @@ Chloe* initialize_chloe(Map& map, Coordinates player_coordinates) {
 template <typename T>
 void initialize_element(Map& map, Coordinates player_coordinates, int amount) {
     for (int i = 0; i < amount; i++) {
-        T* obstacle = new T(map, player_coordinates);
-        Coordinates r_coordinates = obstacle->get_coordinates();
-        replace_and_free(map, r_coordinates, obstacle);
+        T* element = new T(map, player_coordinates);
+        Coordinates r_coordinates = element->get_coordinates();
+        replace_and_free(map, r_coordinates, element);
     }
 }
 
@@ -91,7 +91,6 @@ Game::Game(char character) {
 // Destructor for the Game class
 Game::~Game(void) {
     delete this->player;
-    delete this->chloe;
     for (int i = 0; i < ROWS; ++i) {
         for (int j = 0; j < COLUMNS; ++j) {
             delete this->map[i][j];
@@ -107,10 +106,10 @@ void Game::print_map(void) {
         std::cout << "  ";
         for (int j = 0; j < COLUMNS; j++) {
             if(this->player->get_coordinates() == Coordinates{i, j}) {
-                std::cout << this->player->get_representation() << " ";
+                std::cout << this->player->get_map_representation() << " ";
                 continue;
             } 
-            std::cout << this->map[i][j]->get_representation() << " ";
+            std::cout << this->map[i][j]->get_map_representation() << " ";
         }
         std::cout << std::endl;
     }
@@ -129,4 +128,24 @@ Player* Game::get_player(void) {
 // Returns the time the player lost in the game
 double Game::get_time(void) {
     return this->player->get_lost_time();
+}
+
+// Takes a command and changes the game accordingly
+void Game::play(char command) {
+    switch (command) {
+        case MOVE_UP:
+            this->player->move_up();
+            break;
+        case MOVE_DOWN:
+            this->player->move_down();
+            break;
+        case MOVE_LEFT:
+            this->player->move_left();
+            break;
+        case MOVE_RIGHT:
+            this->player->move_right();
+            break;
+        default:
+            std::cout << "Invalid command" << std::endl;
+    }
 }
