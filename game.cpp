@@ -119,6 +119,7 @@ void initialize_tools(Map& map, Coordinates player_coordinates) {
 // Receives a character that represents the player and initializes the map
 // with all the elements needed for the game
 Game::Game(char character) {
+    this->over = false;
     this->map = initialize_map();
     this->player = initialize_player(character);
 
@@ -158,7 +159,7 @@ void Game::print_map(void) {
 
 // Returns true if the game is over
 bool Game::is_over(void) {
-    return this->player->get_coordinates() == this->chloe->get_coordinates();
+    return this->over;
 }
 
 // Gets the player
@@ -257,4 +258,9 @@ void Game::play(char command) {
 // Set the visibility of a map element
 void Game::set_visibility(Coordinates coordinates, bool visibility) {
     this->map[coordinates.x][coordinates.y]->set_visibility(visibility);
+}
+
+// Ends the game
+void Game::end_game(void) {
+    this->over = true;
 }

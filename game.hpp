@@ -11,6 +11,7 @@ class Player; // Forward declaration to avoid circular dependency
 using namespace Constants;
 using namespace TypeDefinitions;
 
+// Class for the game
 class Game {
     private:
         // Matrix of pointers to MapElements
@@ -19,6 +20,8 @@ class Game {
         Player* player;
         // Chloe's coordinates
         Chloe* chloe;
+        // True if the game is over
+        bool over;
     public:
         // Constructor
         Game(char character);

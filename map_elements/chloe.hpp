@@ -11,6 +11,8 @@ class Chloe : public MapElement {
         bool found;
     public:
         Chloe(Map map, Coordinates player_coordinates);
+        //Affect game
+        void affect_game(Game* game);
 };
 
 #endif // __CHLOE_HPP__
