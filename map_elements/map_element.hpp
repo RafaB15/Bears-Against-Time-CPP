@@ -5,6 +5,7 @@
 
 #include "../coordinates.hpp"
 #include "../utils.hpp"
+#include "../game.hpp"
 
 using namespace TypeDefinitions;
 
@@ -33,6 +34,8 @@ class MapElement {
         std::string get_map_representation(void);
         // Set the visibility of the element
         void set_visibility(bool visibility);
+        // Affect game
+        virtual void affect_game(Game* game) = 0;
 };
 
 #endif // __MAP_ELEMENT_HPP__
