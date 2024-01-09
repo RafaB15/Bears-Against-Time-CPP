@@ -14,7 +14,11 @@ namespace Constants {
 
     const std::string HIDDEN_TILE_REPRESENTATION = "\U0001F7E9";
     const std::string EMPTY_SPACE_REPRESENTATION = "\U00002B1C";
-    const std::string PLAYER_REPRESENTATION = "\U0001F43B";
+
+    const std::string GRIZZLY_REPRESENTATION = "\U0001F43B";
+    const std::string PANDA_REPRESENTATION = "\U0001F43C";
+    const std::string ICE_REPRESENTATION = "\U00002744";
+
     const std::string CHLOE_REPRESENTATION = "\U0001F467";
     const std::string KOALA_REPRESENTATION = "\U0001F428";
     const std::string ROCK_REPRESENTATION = "\U0001FAA8 ";

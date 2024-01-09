@@ -12,7 +12,7 @@ class Player {
         char last_move;
     public:
         //Constructor for a Player with valid coordinates.
-        Player(void);
+        Player(std::string representation);
         //Getter for coordinates
         Coordinates get_coordinates(void);
         //Getter for representation

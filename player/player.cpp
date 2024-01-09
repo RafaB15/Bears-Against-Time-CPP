@@ -6,13 +6,12 @@ using namespace Constants;
 
 //Constructor for valid random Player.
 //Receives a map to check if the coordinate is already occupied.
-Player::Player(void) {
+Player::Player(std::string representation) : representation(representation) {
     int x = std::rand() % ROWS;
     int y = 0;
     
     this->coordinates.x = x;
     this->coordinates.y = y;
-    this->representation = PLAYER_REPRESENTATION;
     this->lost_time = 0;
     this->last_move = MOVE_RIGHT;
 }
