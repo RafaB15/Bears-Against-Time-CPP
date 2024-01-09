@@ -10,7 +10,7 @@ using namespace Constants;
 
 //Constructor for valid random MapElement.
 //Receives a map to check if the coordinate is already occupied.
-MapElement::MapElement(Map map, std::string representation, Coordinates player_coordinates, bool visible) : representation(representation), visible(visible) {
+MapElement::MapElement(Map map, std::string representation, Coordinates player_coordinates, bool visible, bool pickable) : representation(representation), visible(visible), pickable(pickable){
     int x = std::rand() % ROWS;
     int y = std::rand() % COLUMNS;
     while (map[x][y]->get_representation() != EMPTY_SPACE_REPRESENTATION && (x != player_coordinates.x || y != player_coordinates.y)) {
@@ -22,7 +22,7 @@ MapElement::MapElement(Map map, std::string representation, Coordinates player_c
 }
 
 //Constructor for MapElement in specified coordinates.
-MapElement::MapElement(Coordinates coordinates, std::string representation, bool visible) : coordinates(coordinates), representation(representation), visible(visible) {}
+MapElement::MapElement(Coordinates coordinates, std::string representation, bool visible, bool pickable) : coordinates(coordinates), representation(representation), visible(visible), pickable(pickable) {}
 
 //Destructor
 MapElement::~MapElement(void) {}

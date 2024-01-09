@@ -14,12 +14,13 @@ class MapElement {
         Coordinates coordinates;
         std::string representation;
         bool visible;
+        bool pickable;
     public:
         //Constructor for valid random MapElement.
         //Receives a map to check if the coordinate is already occupied.
-        MapElement(Map map, std::string representation, Coordinates player_coordinates, bool visible);
+        MapElement(Map map, std::string representation, Coordinates player_coordinates, bool visible, bool pickable);
         //Constructor for MapElement in specified coordinates.
-        MapElement(Coordinates coordinates, std::string representation, bool visible);
+        MapElement(Coordinates coordinates, std::string representation, bool visible, bool pickable);
         //Destructor
         virtual ~MapElement(void);
         //Getter for coordinate
