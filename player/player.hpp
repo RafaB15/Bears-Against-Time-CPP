@@ -42,6 +42,8 @@ class Player {
         //Selects a new tool that matches the given representation and changes the tool in use
         //If the fireworks are currently selected, it doesn't change the tool in use.
         void select_tool(std::string tool_representation);
+        //Encounters a tree
+        void encounter_tree();
 };  
 
 #endif // __PLAYER_HPP__

@@ -107,3 +107,8 @@ void Player::select_tool(std::string tool_representation) {
         }
     }
 }
+
+//Encounters a tree
+void Player::encounter_tree() {
+    this->lost_time += TIME_LOST_TREE;
+}
