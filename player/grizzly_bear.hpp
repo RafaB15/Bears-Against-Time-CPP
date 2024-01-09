@@ -5,7 +5,9 @@
 
 class GrizzlyBear : public Player {
     public:
-        GrizzlyBear();
+        GrizzlyBear(void);
+        //Encounter a tree
+        void encounter_tree(void);
 };
 
 #endif // __GRIZZLY_BEAR_HPP__

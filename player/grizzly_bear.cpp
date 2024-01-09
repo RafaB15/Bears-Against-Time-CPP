@@ -9,3 +9,8 @@ using namespace Constants;
 GrizzlyBear::GrizzlyBear() : Player(GRIZZLY_REPRESENTATION) {
     this->tools.push_back(new Flashlight(MOVEMENTS_FLASHLIGHT_GRIZZLY));
 }
+
+//Encounter a tree
+void GrizzlyBear::encounter_tree(void) {
+    this->lost_time += TIME_LOST_TREE_GRIZZLY;
+}
