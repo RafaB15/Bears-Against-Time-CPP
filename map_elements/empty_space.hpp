@@ -5,7 +5,10 @@
 
 class EmptySpace : public MapElement {
     public:
+        //Constructor for valid random EmptySpace.
         EmptySpace(Coordinates coordinates);
+        //Affect game
+        void affect_game(Game* game);
 };
 
 #endif // __EMPTY_SPACE_HPP__
