@@ -12,12 +12,16 @@ namespace TypeDefinitions {
 
 namespace Constants {
 
+    const char PERSONALITY_GRIZZLY = 'G';
+    const char PERSONALITY_PANDA   = 'P';
+    const char PERSONALITY_ICE     = 'I';
+
     const std::string HIDDEN_TILE_REPRESENTATION = "\U0001F7E9";
     const std::string EMPTY_SPACE_REPRESENTATION = "\U00002B1C";
 
     const std::string GRIZZLY_REPRESENTATION = "\U0001F43B";
     const std::string PANDA_REPRESENTATION = "\U0001F43C";
-    const std::string ICE_REPRESENTATION = "\U00002744";
+    const std::string ICE_REPRESENTATION = "\U0001F9CA";
 
     const std::string CHLOE_REPRESENTATION = "\U0001F467";
     const std::string KOALA_REPRESENTATION = "\U0001F428";

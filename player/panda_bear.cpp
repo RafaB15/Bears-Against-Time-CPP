@@ -1,4 +1,7 @@
 #include "panda_bear.hpp"
+#include "../utils.hpp"
+
+using namespace Constants;
 
 //Constructor for the Panda class
-PandaBear::PandaBear(std::string representation) : Player(representation) {}
+PandaBear::PandaBear() : Player(PANDA_REPRESENTATION) {}

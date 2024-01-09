@@ -2,6 +2,9 @@
 #include "coordinates.hpp"
 #include "map_elements/map_element.hpp"
 #include "player/player.hpp"
+#include "player/grizzly_bear.hpp"
+#include "player/ice_bear.hpp"
+#include "player/panda_bear.hpp"
 #include "map_elements/chloe.hpp"
 #include "map_elements/empty_space.hpp"
 #include "map_elements/map_obstacles/map_obstacle.hpp"
@@ -39,7 +42,17 @@ void replace_and_free(Map& map, Coordinates coordinates, MapElement* new_element
 
 // Receives a Map object and initializes the player in a random position
 Player* initialize_player(char character) {
-    return new Player();
+    switch(character) {
+        case PERSONALITY_GRIZZLY:
+            return new GrizzlyBear();
+            break;
+        case PERSONALITY_ICE:
+            return new IceBear();
+            break;
+        default:
+            return new PandaBear();
+            break;
+    }
 }
 
 // Receives a Map object and initializes Chloe in a random position
