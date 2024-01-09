@@ -2,12 +2,15 @@
 #define __PLAYER_HPP__
 
 #include "../coordinates.hpp"
+#include "../player_tools/player_tool.hpp"
 #include <string>
+#include <vector>
 
 class Player {
-    private:
+    protected:
         Coordinates coordinates;
         std::string representation;
+        std::vector<PlayerTool*> tools;  
         double lost_time;
         char last_move;
     public:

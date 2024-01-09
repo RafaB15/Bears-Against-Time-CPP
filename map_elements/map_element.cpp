@@ -49,3 +49,8 @@ std::string MapElement::get_map_representation(void) {
     }
     return this->representation;
 }
+
+// Set the visibility of the element
+void MapElement::set_visibility(bool visibility) {
+    this->visible = visibility;
+}

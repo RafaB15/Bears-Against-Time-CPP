@@ -33,6 +33,8 @@ class Game {
         Player* get_player(void);
         // Takes a command and changes the game accordingly
         void play(char command);
+        // Set the visibility of a map element
+        void set_visibility(Coordinates coordinates, bool visibility);
 };
 
 #endif // __GAME_HPP__

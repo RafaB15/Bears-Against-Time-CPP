@@ -30,6 +30,8 @@ class MapElement {
         std::string get_representation(void);
         //Gets the representation of the element in the map
         std::string get_map_representation(void);
+        // Set the visibility of the element
+        void set_visibility(bool visibility);
 };
 
 #endif // __MAP_ELEMENT_HPP__

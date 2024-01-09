@@ -162,3 +162,8 @@ void Game::play(char command) {
             std::cout << "Invalid command" << std::endl;
     }
 }
+
+// Set the visibility of a map element
+void Game::set_visibility(Coordinates coordinates, bool visibility) {
+    this->map[coordinates.x][coordinates.y]->set_visibility(visibility);
+}
