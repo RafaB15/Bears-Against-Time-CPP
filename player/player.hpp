@@ -3,6 +3,7 @@
 
 #include "../coordinates.hpp"
 #include "../player_tools/player_tool.hpp"
+#include "../game.hpp"
 #include <string>
 #include <vector>
 
@@ -11,6 +12,7 @@ class Player {
         Coordinates coordinates;
         std::string representation;
         std::vector<PlayerTool*> tools;  
+        int tool_in_use;
         double lost_time;
         char last_move;
     public:
@@ -32,6 +34,14 @@ class Player {
         void move_left(void);
         //Move right
         void move_right(void);
+        //Use tool
+        void use_tool(Game* game);
+        //Checks if the tool currently in use has any movements left
+        //If it doesn't, it sets the tool_in_use to -1
+        void check_tool_movements(void);
+        //Selects a new tool that matches the given representation and changes the tool in use
+        //If the fireworks are currently selected, it doesn't change the tool in use.
+        void select_tool(std::string tool_representation);
 };  
 
 #endif // __PLAYER_HPP__

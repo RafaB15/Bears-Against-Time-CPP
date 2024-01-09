@@ -1,9 +1,9 @@
 #ifndef __PLAYER_TOOL_HPP__
 #define __PLAYER_TOOL_HPP__
 
-#include "../game.hpp"
-
 #include <string>
+
+class Game; //Forward declaration to avoid circular dependency
 
 class PlayerTool {
     protected:

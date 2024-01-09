@@ -2,10 +2,11 @@
 #define __GAME_HPP__
 
 #include "map_elements/map_element.hpp"
-#include "player/player.hpp"
 #include "map_elements/chloe.hpp"
 #include "coordinates.hpp"
 #include "utils.hpp"
+
+class Player; // Forward declaration to avoid circular dependency
 
 using namespace Constants;
 using namespace TypeDefinitions;

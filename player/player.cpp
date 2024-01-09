@@ -12,6 +12,7 @@ Player::Player(std::string representation) : representation(representation) {
     
     this->coordinates.x = x;
     this->coordinates.y = y;
+    this->tool_in_use = -1;
     this->lost_time = 0;
     this->last_move = MOVE_RIGHT;
 }
@@ -66,4 +67,43 @@ void Player::move_right(void) {
         this->coordinates.y++;
     }
     this->last_move = MOVE_RIGHT;
+}
+
+//Use tool
+void Player::use_tool(Game* game) {
+    if (this->tool_in_use != -1) {
+        this->tools[this->tool_in_use]->use(game);
+    }
+}
+
+//Checks if the tool currently in use has any movements left
+//If it doesn't, it sets the tool_in_use to -1
+void Player::check_tool_movements(void) {
+    if (this->tool_in_use != -1) {
+        if (this->tools[this->tool_in_use]->get_movements() == 0) {
+            this->tool_in_use = -1;
+        }
+    }
+}
+
+//Selects a new tool that matches the given representation and changes the tool in use
+//If the fireworks are currently selected, it doesn't change the tool in use.
+void Player::select_tool(std::string tool_representation) {
+    if(this->tool_in_use != -1) {
+        if(this->tools[this->tool_in_use]->get_map_representation() == FIREWORKS_REPRESENTATION) {
+            return;
+        }
+    }
+
+    int size = (int) this->tools.size();
+    for (int i = 0; i < size; i++) {
+        if (this->tools[i]->get_map_representation() == tool_representation && this->tools[i]->get_movements() > 0) {
+            if (this->tool_in_use != i) {
+                this->tool_in_use = i;
+            } else {
+                this->tool_in_use = -1;
+            }
+            return;
+        }
+    }
 }

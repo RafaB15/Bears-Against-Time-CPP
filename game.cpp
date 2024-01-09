@@ -1,25 +1,53 @@
 #include "game.hpp"
 #include "coordinates.hpp"
-#include "map_elements/map_element.hpp"
+
 #include "player/player.hpp"
 #include "player/grizzly_bear.hpp"
 #include "player/ice_bear.hpp"
 #include "player/panda_bear.hpp"
+
+#include "map_elements/map_element.hpp"
 #include "map_elements/chloe.hpp"
 #include "map_elements/empty_space.hpp"
+
 #include "map_elements/map_obstacles/map_obstacle.hpp"
 #include "map_elements/map_obstacles/rock.hpp"
 #include "map_elements/map_obstacles/tree.hpp"
 #include "map_elements/map_obstacles/koala.hpp"
+
 #include "map_elements/map_tools/map_battery.hpp"
 #include "map_elements/map_tools/map_candle.hpp"
 #include "map_elements/map_tools/map_fireworks.hpp"
 
 #include <iostream>
 #include "utils.hpp"
+#include <algorithm>
 
 using namespace Constants;
 using namespace TypeDefinitions;
+
+const std::vector<char> valid_commands = {
+    MOVE_UP, 
+    MOVE_DOWN, 
+    MOVE_LEFT, 
+    MOVE_RIGHT, 
+    ACTIVATE_FLASHLIGHT,
+    ACTIVATE_CANDLE,
+    ACTIVATE_FIREWORKS,
+};
+
+const std::vector<char> move_commands = {
+    MOVE_UP, 
+    MOVE_DOWN, 
+    MOVE_LEFT, 
+    MOVE_RIGHT, 
+};
+
+const std::vector<char> tool_commands = {
+    ACTIVATE_FLASHLIGHT,
+    ACTIVATE_CANDLE,
+    ACTIVATE_FIREWORKS,
+};
 
 // Returns a Map object of size ROWSxCOLUMNS initialized with null pointers
 Map initialize_map() {
@@ -143,24 +171,87 @@ double Game::get_time(void) {
     return this->player->get_lost_time();
 }
 
-// Takes a command and changes the game accordingly
-void Game::play(char command) {
+//Makes all the elements in the map invisible
+void make_invisible(Map& map){
+    for (int i = 0; i < ROWS; i++) {
+        for (int j = 0; j < COLUMNS; j++){
+            map[i][j]->set_visibility(false);
+        }
+    }
+}
+
+//Checks if a command belongs to a vector of commands
+bool belongs_to_vector(char command, std::vector<char> vec) {
+    return std::find(vec.begin(), vec.end(), command) != vec.end();
+}
+
+//Executes a move command
+void execute_move_command(Game* game, char command) {
+    Player* player = game->get_player();
     switch (command) {
         case MOVE_UP:
-            this->player->move_up();
+            player->move_up();
             break;
         case MOVE_DOWN:
-            this->player->move_down();
+            player->move_down();
             break;
         case MOVE_LEFT:
-            this->player->move_left();
+            player->move_left();
             break;
         case MOVE_RIGHT:
-            this->player->move_right();
+            player->move_right();
             break;
-        default:
-            std::cout << "Invalid command" << std::endl;
     }
+}
+
+//Executes a tool command
+void select_tool(Player* player, char command) {
+   switch (command) {
+        case ACTIVATE_FLASHLIGHT:
+            player->select_tool(FLASHLIGHT_REPRESENTATION);
+            break;
+        case ACTIVATE_CANDLE:
+            player->select_tool(CANDLE_REPRESENTATION);
+            break;
+        case ACTIVATE_FIREWORKS:
+            player->select_tool(FIREWORKS_REPRESENTATION);
+            break;
+    }
+}
+
+void execute_tool_action(Game* game, char command) {
+    Player* player = game->get_player();
+    switch (command) {
+        case ACTIVATE_FLASHLIGHT:
+            player->use_tool(game);
+            break;
+        case ACTIVATE_CANDLE:
+            player->use_tool(game);
+            break;
+        case ACTIVATE_FIREWORKS:
+            player->use_tool(game);
+            break;
+    }
+}
+
+// Takes a command and changes the game accordingly
+void Game::play(char command) {
+    if (!belongs_to_vector(command, valid_commands)) {
+        std::cout << "Invalid command. Please enter one of the allowed commands: (A, W, S, D, F, C, R, T) " << std::endl;
+        return;
+    }
+
+    make_invisible(this->map);
+
+    this->player->check_tool_movements();
+    
+    if (belongs_to_vector(command, move_commands)){
+        execute_move_command(this, command);
+    } else if (belongs_to_vector(command, tool_commands)){
+        select_tool(this->player, command);
+    }
+
+    this->player->use_tool(this);
 }
 
 // Set the visibility of a map element

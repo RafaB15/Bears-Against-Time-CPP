@@ -37,6 +37,10 @@ namespace Constants {
     const char MOVE_DOWN  = 'S';
     const char MOVE_RIGHT = 'D';
 
+    const char ACTIVATE_FLASHLIGHT = 'F';
+    const char ACTIVATE_CANDLE = 'C';
+    const char ACTIVATE_FIREWORKS = 'R';
+
     const char SEE_TIME = 'T';
 
     const int INITIAL_CANDLES_AMOUNT          = 4;

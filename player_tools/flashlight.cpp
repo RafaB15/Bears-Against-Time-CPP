@@ -1,5 +1,6 @@
 #include "flashlight.hpp"
 #include "../utils.hpp"
+#include "../player/player.hpp"
 
 using namespace Constants;
 
@@ -20,16 +21,16 @@ std::string Flashlight::get_representation() {
 bool is_in_range(Coordinates element_coordinates, Coordinates player_coordinates, char player_last_move) {
     switch(player_last_move){
 		case MOVE_UP:
-		return ((element_coordinates.x == player_coordinates.x) && (element_coordinates.y < player_coordinates.y));
+		return ((element_coordinates.y == player_coordinates.y) && (element_coordinates.x < player_coordinates.x));
 		break;
 		case MOVE_DOWN:
-		return ((element_coordinates.x == player_coordinates.x) && (element_coordinates.y > player_coordinates.y));
+		return ((element_coordinates.y == player_coordinates.y) && (element_coordinates.x > player_coordinates.x));
 		break;
 		case MOVE_LEFT:
-		return ((element_coordinates.x < player_coordinates.x) && (element_coordinates.y == player_coordinates.y));
+		return ((element_coordinates.y < player_coordinates.y) && (element_coordinates.x == player_coordinates.x));
 		break;
 		case MOVE_RIGHT:
-		return ((element_coordinates.x > player_coordinates.x) && (element_coordinates.y == player_coordinates.y));
+		return ((element_coordinates.y > player_coordinates.y) && (element_coordinates.x == player_coordinates.x));
 		break;
 		default:
 		return false;
