@@ -27,10 +27,14 @@ class Game {
         Game(char character);
         // Destructor
         ~Game(void);
+        // Getter for the map
+        Map get_map(void);
         // Prints the map to the screen
         void print_map(void);
         // Returns true if the game is over
         bool is_over(void);
+        // Ends the game
+        void end_game(void);
         // Returns the time the player lost in the game
         double get_time(void);
         // Gets the player

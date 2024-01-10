@@ -264,3 +264,8 @@ void Game::set_visibility(Coordinates coordinates, bool visibility) {
 void Game::end_game(void) {
     this->over = true;
 }
+
+// Getter for the map
+Map Game::get_map(void) {
+    return this->map;
+}
