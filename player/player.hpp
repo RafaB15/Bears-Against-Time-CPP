@@ -48,6 +48,10 @@ class Player {
         virtual void encounter_rock();
         //Encounters a Koala
         void encounter_koala(Game* game);
+        //Add tool
+        void add_tool(PlayerTool* tool);
+        //Gives the flashlight more moves
+        void recharge_flashlight(int movements);
 };  
 
 #endif // __PLAYER_HPP__

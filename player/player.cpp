@@ -1,5 +1,6 @@
 #include "player.hpp"
 #include "../utils.hpp"
+#include "../player_tools/flashlight.hpp"
 #include <cstdlib>
 
 using namespace Constants;
@@ -90,14 +91,14 @@ void Player::check_tool_movements(void) {
 //If the fireworks are currently selected, it doesn't change the tool in use.
 void Player::select_tool(std::string tool_representation) {
     if(this->tool_in_use != -1) {
-        if(this->tools[this->tool_in_use]->get_map_representation() == FIREWORKS_REPRESENTATION) {
+        if(this->tools[this->tool_in_use]->get_representation() == FIREWORKS_REPRESENTATION) {
             return;
         }
     }
 
     int size = (int) this->tools.size();
     for (int i = 0; i < size; i++) {
-        if (this->tools[i]->get_map_representation() == tool_representation && this->tools[i]->get_movements() > 0) {
+        if (this->tools[i]->get_representation() == tool_representation && this->tools[i]->get_movements() > 0) {
             if (this->tool_in_use != i) {
                 this->tool_in_use = i;
             } else {
@@ -147,4 +148,21 @@ Coordinates find_free_coordinates_koala(Map map, int column) {
 //Encounters a Koala
 void Player::encounter_koala(Game* game) {
     this->coordinates = find_free_coordinates_koala(game->get_map(), 0); 
+}
+
+//Add tool
+void Player::add_tool(PlayerTool* tool) {
+    this->tools.push_back(tool);
+}
+
+//Gives the flashlight more moves
+void Player::recharge_flashlight(int movements) {
+    int size = (int) this->tools.size();
+    for (int i = 0; i < size; i++) {
+        if (this->tools[i]->get_representation() == FLASHLIGHT_REPRESENTATION) {
+            Flashlight* flashlight = dynamic_cast<Flashlight*>(this->tools[i]);
+            flashlight->recharge(movements);
+            return;
+        }
+    }
 }
