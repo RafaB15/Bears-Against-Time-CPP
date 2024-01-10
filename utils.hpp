@@ -31,7 +31,7 @@ namespace Constants {
     const std::string CANDLE_REPRESENTATION = " \U0001F56F";
     const std::string FIREWORKS_REPRESENTATION = "\U0001F9E8";
     const std::string FLASHLIGHT_REPRESENTATION = "\U0001F526";
-    
+
     const char MOVE_UP    = 'W';
     const char MOVE_LEFT  = 'A';
     const char MOVE_DOWN  = 'S';
@@ -52,6 +52,8 @@ namespace Constants {
     const int MOVEMENTS_BATTERY			    = 5;
     const int MOVEMENTS_CANDLE              = 5;
     const int MOVEMENTS_FIREWORKS           = 3;
+
+    const int CANDLE_RANGE = 1;
 
     const int AMOUNT_TREES_MAP  = 350;
     const int AMOUNT_ROCKS_MAP = 80;
