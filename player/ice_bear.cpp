@@ -8,3 +8,6 @@ using namespace Constants;
 IceBear::IceBear() : Player(ICE_REPRESENTATION) {
     this->tools.push_back(new Flashlight(MOVEMENTS_FLASHLIGHT));
 }
+
+//Encounter a rock
+void IceBear::encounter_rock(void) {}
