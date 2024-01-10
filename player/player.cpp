@@ -112,3 +112,39 @@ void Player::select_tool(std::string tool_representation) {
 void Player::encounter_tree() {
     this->lost_time += TIME_LOST_TREE;
 }
+
+//Encounters a rock
+void Player::encounter_rock() {
+    this->lost_time += TIME_LOST_ROCK;
+}
+
+// Checks if a column in the map has empty spaces
+bool column_has_empty_spaces(Map map, int column) {
+    for (int i = 0; i < ROWS; i++) {
+        if (map[i][column]->get_representation() == EMPTY_SPACE_REPRESENTATION) {
+            return true;
+        }
+    }
+    return false;
+}
+
+//Finds a coordinate for the player to go if a Koala is encountered.
+//We try to place the player in the first column. If it is full, we 
+//try the next ones
+Coordinates find_free_coordinates_koala(Map map, int column) {
+    Coordinates new_coordinates;
+    for (int i = 0; i < COLUMNS; i++) {
+        if (column_has_empty_spaces(map, i)) {
+            do {
+                new_coordinates.x = std::rand() % ROWS;
+                new_coordinates.y = i;
+            } while (map[new_coordinates.x][new_coordinates.y]->get_representation() != EMPTY_SPACE_REPRESENTATION);
+            return new_coordinates;
+        }
+    }
+}
+
+//Encounters a Koala
+void Player::encounter_koala(Game* game) {
+    this->coordinates = find_free_coordinates_koala(game->get_map(), 0); 
+}

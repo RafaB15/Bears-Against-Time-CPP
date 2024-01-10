@@ -43,7 +43,11 @@ class Player {
         //If the fireworks are currently selected, it doesn't change the tool in use.
         void select_tool(std::string tool_representation);
         //Encounters a tree
-        void encounter_tree();
+        virtual void encounter_tree();
+        //Encounters a rock
+        virtual void encounter_rock();
+        //Encounters a Koala
+        void encounter_koala(Game* game);
 };  
 
 #endif // __PLAYER_HPP__
