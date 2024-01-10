@@ -15,7 +15,7 @@ class PlayerTool {
         //Getter for movements
         int get_movements(void);
         //Getter for representation
-        std::string get_map_representation(void);
+        std::string get_representation(void);
         //Use the tool
         virtual void use(Game* game) = 0; //Pure virtual function
 };

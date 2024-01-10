@@ -9,6 +9,6 @@ int PlayerTool::get_movements(void) {
 }
 
 // Getter for representation
-std::string PlayerTool::get_map_representation(void) {
+std::string PlayerTool::get_representation(void) {
     return this->representation;
 }
