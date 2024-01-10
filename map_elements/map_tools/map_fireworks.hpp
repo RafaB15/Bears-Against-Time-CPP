@@ -8,6 +8,8 @@ using namespace TypeDefinitions;
 class MapFireworks : public MapTool {
     public:
         MapFireworks(Map map, Coordinates player_coordinates);
+        //Affect game
+        void affect_game(Game* game);
 };
 
 #endif // __MAP_FIREWORKS_HPP__
