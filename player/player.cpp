@@ -18,6 +18,14 @@ Player::Player(std::string representation) : representation(representation) {
     this->last_move = MOVE_RIGHT;
 }
 
+//Destructor
+Player::~Player(void) {
+    int size = (int) this->tools.size();
+    for (int i = 0; i < size; i++) {
+        delete this->tools[i];
+    }
+}
+
 //Getter for coordinates
 Coordinates Player::get_coordinates(void) {
     return this->coordinates;
@@ -143,6 +151,7 @@ Coordinates find_free_coordinates_koala(Map map, int column) {
             return new_coordinates;
         }
     }
+    return Coordinates{0, 0};
 }
 
 //Encounters a Koala

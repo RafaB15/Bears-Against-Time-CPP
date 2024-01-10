@@ -18,6 +18,8 @@ class Player {
     public:
         //Constructor for a Player with valid coordinates.
         Player(std::string representation);
+        //Destructor 
+        virtual ~Player();
         //Getter for coordinates
         Coordinates get_coordinates(void);
         //Getter for representation

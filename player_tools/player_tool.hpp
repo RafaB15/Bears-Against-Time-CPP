@@ -12,6 +12,8 @@ class PlayerTool {
     public:
         //Constructor for a PlayerTool
         PlayerTool(int movements, std::string representation);
+        //Destructor
+        virtual ~PlayerTool(void);
         //Getter for movements
         int get_movements(void);
         //Getter for representation

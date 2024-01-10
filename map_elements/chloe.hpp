@@ -3,6 +3,7 @@
 
 #include "map_element.hpp"
 #include "../utils.hpp"
+#include "../game.hpp"
 
 using namespace TypeDefinitions;
 

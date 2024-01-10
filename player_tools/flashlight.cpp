@@ -7,7 +7,7 @@ using namespace Constants;
 //Constructor for the Flashlight class
 Flashlight::Flashlight(int movements) : PlayerTool(movements, FLASHLIGHT_REPRESENTATION) {}
 
-bool is_in_range(Coordinates element_coordinates, Coordinates player_coordinates, char player_last_move) {
+bool is_in_range_flashlight(Coordinates element_coordinates, Coordinates player_coordinates, char player_last_move) {
     switch(player_last_move){
 		case MOVE_UP:
 		return ((element_coordinates.y == player_coordinates.y) && (element_coordinates.x < player_coordinates.x));
@@ -32,7 +32,7 @@ void Flashlight::use(Game* game) {
     Player* player = game->get_player();
     for (int i = 0; i < ROWS; i++) {
         for (int j = 0; j < COLUMNS; j++){
-            if(is_in_range(Coordinates{i, j}, player->get_coordinates(), player->get_last_move())){
+            if(is_in_range_flashlight(Coordinates{i, j}, player->get_coordinates(), player->get_last_move())){
                 game->set_visibility(Coordinates{i, j}, true);
             }
         }

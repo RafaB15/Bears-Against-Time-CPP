@@ -5,9 +5,10 @@
 
 #include "../coordinates.hpp"
 #include "../utils.hpp"
-#include "../game.hpp"
 
 using namespace TypeDefinitions;
+
+class Game; // Forward declaration of Game class to avoid circular dependency
 
 //Abstract class for all map elements.
 class MapElement {

@@ -189,6 +189,7 @@ bool belongs_to_vector(char command, std::vector<char> vec) {
 //Executes a move command
 void execute_move_command(Game* game, char command) {
     Player* player = game->get_player();
+    Coordinates initial_player_coordinates = player->get_coordinates();
     switch (command) {
         case MOVE_UP:
             player->move_up();
@@ -203,6 +204,10 @@ void execute_move_command(Game* game, char command) {
             player->move_right();
             break;
     }
+    if (player->get_coordinates() == initial_player_coordinates) {
+        return;
+    }
+    game->get_map()[player->get_coordinates().x][player->get_coordinates().y]->affect_game(game);
 }
 
 //Executes a tool command
