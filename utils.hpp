@@ -53,7 +53,8 @@ namespace Constants {
     const int MOVEMENTS_CANDLE              = 5;
     const int MOVEMENTS_FIREWORKS           = 3;
 
-    const int CANDLE_RANGE = 1;
+    const int CANDLE_RANGE    = 1;
+    const int FIREWORKS_RANGE = 3;
 
     const int AMOUNT_TREES_MAP  = 350;
     const int AMOUNT_ROCKS_MAP = 80;
