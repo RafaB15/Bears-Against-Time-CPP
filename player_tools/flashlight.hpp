@@ -7,11 +7,7 @@
 class Flashlight : public PlayerTool {
     public:
         //Constructor for a Flashlight
-        Flashlight(int movements);
-        //Getter for movements
-        int get_movements(void);
-        //Getter for representation
-        std::string get_representation(void);        
+        Flashlight(int movements);    
         //Use the tool
         void use(Game* game);
         //Recharge

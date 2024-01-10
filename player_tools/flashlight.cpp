@@ -7,17 +7,6 @@ using namespace Constants;
 //Constructor for the Flashlight class
 Flashlight::Flashlight(int movements) : PlayerTool(movements, FLASHLIGHT_REPRESENTATION) {}
 
-
-//Returns the movements of the Flashlight
-int Flashlight::get_movements() {
-    return this->movements;
-}
-
-//Returns the representation of the Flashlight
-std::string Flashlight::get_representation() {
-    return FLASHLIGHT_REPRESENTATION;
-}
-
 bool is_in_range(Coordinates element_coordinates, Coordinates player_coordinates, char player_last_move) {
     switch(player_last_move){
 		case MOVE_UP:
