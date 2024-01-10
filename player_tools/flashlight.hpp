@@ -14,6 +14,8 @@ class Flashlight : public PlayerTool {
         std::string get_representation(void);        
         //Use the tool
         void use(Game* game);
+        //Recharge
+        void recharge(int movements);
 };
 
 #endif // __FLASHLIGHT_HPP__

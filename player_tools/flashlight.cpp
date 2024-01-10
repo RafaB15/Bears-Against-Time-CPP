@@ -50,3 +50,8 @@ void Flashlight::use(Game* game) {
     }
     this->movements--;
 }
+
+//Recharge the tool
+void Flashlight::recharge(int movements) {
+	this->movements += movements;
+}
