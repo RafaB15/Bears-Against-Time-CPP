@@ -175,3 +175,14 @@ void Player::recharge_flashlight(int movements) {
         }
     }
 }
+
+//Returns true if the flashlight has moves left
+int Player::get_flashlight_movements(void) {
+    Flashlight* flashlight = dynamic_cast<Flashlight*>(this->tools[FLASHLIGHT_INDEX]);
+    return (flashlight->get_movements() != 0);
+}
+
+//Getter for tool_in_use
+int Player::get_tool_in_use(void) {
+    return this->tool_in_use;
+}

@@ -54,6 +54,10 @@ class Player {
         void add_tool(PlayerTool* tool);
         //Gives the flashlight more moves
         void recharge_flashlight(int movements);
+        //Returns true if the flashlight has moves left
+        int get_flashlight_movements(void);
+        //Getter for tool_in_use
+        int get_tool_in_use(void);
 };  
 
 #endif // __PLAYER_HPP__
