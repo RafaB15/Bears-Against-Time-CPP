@@ -73,6 +73,8 @@ namespace Constants {
     const double TIME_LOST_TREE         = 1;
     const double TIME_LOST_TREE_GRIZZLY = 0.5;
     const double TIME_LOST_ROCK         = 2;
+
+    const double TIME_PANDA_SPECIAL = 30;
 }
 
 

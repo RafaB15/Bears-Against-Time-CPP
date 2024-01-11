@@ -255,6 +255,15 @@ void check_for_pickable_object(Player* player, Map& map) {
     }
 }
 
+//CHecks if the player is Panda and 30 seconds have been lost. If so, makes Chloe visible
+void check_panda_chloe_visible(Game* game) {
+    Player* player = game->get_player();
+    if (player->get_map_representation() == PANDA_REPRESENTATION && player->get_lost_time() > TIME_PANDA_SPECIAL){
+        Coordinates chloe_coordinates = game->get_chloe()->get_coordinates();
+        game->set_visibility(chloe_coordinates, true);
+    }
+}
+
 // Takes a command and changes the game accordingly
 void Game::play(char command) {
     if (!belongs_to_vector(command, valid_commands)) {
@@ -276,6 +285,7 @@ void Game::play(char command) {
     }
 
     this->player->use_tool(this);
+    check_panda_chloe_visible(this);
 }
 
 // Set the visibility of a map element
@@ -291,4 +301,9 @@ void Game::end_game(void) {
 // Getter for the map
 Map Game::get_map(void) {
     return this->map;
+}
+
+//Getter for Chloe
+Chloe* Game::get_chloe(void) {
+    return this->chloe;
 }

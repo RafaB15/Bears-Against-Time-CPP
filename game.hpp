@@ -39,6 +39,8 @@ class Game {
         double get_time(void);
         // Gets the player
         Player* get_player(void);
+        // Getter for Chloe
+        Chloe* get_chloe(void);
         // Takes a command and changes the game accordingly
         void play(char command);
         // Set the visibility of a map element
