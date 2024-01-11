@@ -37,6 +37,11 @@ bool MapElement::is_visible(void) {
     return this->visible;
 }
 
+//Getter for pickable
+bool MapElement::is_pickable(void) {
+    return this->pickable;
+}
+
 //Getter for representation
 std::string MapElement::get_representation(void) {
     return this->representation;

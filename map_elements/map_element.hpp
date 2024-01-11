@@ -29,6 +29,8 @@ class MapElement {
         Coordinates get_coordinates(void);
         //Getter for visibility
         bool is_visible(void);
+        //Getter for pickable
+        bool is_pickable(void);
         //Getter for representation
         std::string get_representation(void);
         //Gets the representation of the element in the map
