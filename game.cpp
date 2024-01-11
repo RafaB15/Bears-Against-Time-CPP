@@ -240,6 +240,13 @@ void execute_tool_action(Game* game, char command) {
     }
 }
 
+//Cheks if the flashlight is going to be turned on to make a koala apppear
+void check_koala_appearance(Map& map, Player* player, char command) {
+    if (command == ACTIVATE_FLASHLIGHT && player->get_tool_in_use() == -1 && player->get_flashlight_movements() > 0) {
+        initialize_element<Koala>(map, player->get_coordinates(), 1);
+    }
+}
+
 // Takes a command and changes the game accordingly
 void Game::play(char command) {
     if (!belongs_to_vector(command, valid_commands)) {
@@ -248,6 +255,8 @@ void Game::play(char command) {
     }
 
     make_invisible(this->map);
+
+    check_koala_appearance(this->map, this->get_player(), command);
 
     this->player->check_tool_movements();
     
