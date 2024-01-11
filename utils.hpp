@@ -56,6 +56,8 @@ namespace Constants {
     const int CANDLE_RANGE    = 1;
     const int FIREWORKS_RANGE = 3;
 
+    const int FLASHLIGHT_INDEX = 0;
+
     const int AMOUNT_TREES_MAP  = 350;
     const int AMOUNT_ROCKS_MAP = 80;
 
