@@ -247,6 +247,14 @@ void check_koala_appearance(Map& map, Player* player, char command) {
     }
 }
 
+//Checks if the player is going to pick up an object
+void check_for_pickable_object(Player* player, Map& map) {
+    Coordinates player_coordinates = player->get_coordinates();
+    if (map[player_coordinates.x][player_coordinates.y]->is_pickable()) {
+        replace_and_free(map, player_coordinates, new EmptySpace(player_coordinates));
+    }
+}
+
 // Takes a command and changes the game accordingly
 void Game::play(char command) {
     if (!belongs_to_vector(command, valid_commands)) {
@@ -262,6 +270,7 @@ void Game::play(char command) {
     
     if (belongs_to_vector(command, move_commands)){
         execute_move_command(this, command);
+        check_for_pickable_object(this->player, this->map);
     } else if (belongs_to_vector(command, tool_commands)){
         select_tool(this->player, command);
     }
