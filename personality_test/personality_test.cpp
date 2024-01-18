@@ -1,18 +1,19 @@
 #include "personality_test.hpp"
 #include <iostream>
 #include <limits>
+#include <cctype>
 
 #define ICE 'I'
 #define PANDA 'P'
 #define GRIZZLY 'G'
 
 #define ANIME 'A'
-#define CLEANING 'L'
-#define POP_MUSIC 'M'
+#define CLEANING 'C'
+#define POP_MUSIC 'P'
 
-#define SEALS 'F'
+#define SEALS 'S'
 #define BAMBU 'B'
-#define FISH 'P'
+#define FISH 'F'
 
 #define CHANNEL_QUESTION 'C'
 #define FOOD_QUESTION 'X'
@@ -41,10 +42,10 @@ const int UPPER_LIMIT_PANDA = 43;
 void print_question(char question_type){
 	switch(question_type){
 		case CHANNEL_QUESTION:
-		std::cout << "You are going to watch TV for a while, you put the channel of: Anime (A), Pop Music (M), Cleaning (L).\n";
+		std::cout << "You are going to watch TV for a while, you put the channel of: Anime (A), Pop Music (P), Cleaning (C).\n";
 		break;
 		case FOOD_QUESTION:
-		std::cout << "You can only save one food in your lunch box: Bamboo (B), Fish (P), Seals (F).\n";
+		std::cout << "You can only save one food in your lunch box: Bamboo (B), Fish (F), Seals (S).\n";
 		break;
 		case TOWER_QUESTION:
 		std::cout << "You buy a tower with your two 18-story brothers. What floor would you like to live on?\n";
@@ -69,6 +70,7 @@ void print_warning_message(char question_type){
 //Post condition: Returns true if the answer is one of the valid options:
 //				  ANIME, POP_MUSIC or CLEANING. Returns false otherwise.
 bool verify_answer_channel(char channel){
+	channel = static_cast<char>(std::toupper(channel));
 	return ((channel == ANIME) || (channel == POP_MUSIC) || (channel == CLEANING));
 }
 
@@ -76,6 +78,7 @@ bool verify_answer_channel(char channel){
 //Post condition: Returns true if the answer is one of the valid options:
 //				  SEALS, BAMBU or FISH. Returns false otherwise.
 bool verify_answer_food(char food){
+	food = static_cast<char>(std::toupper(food));
 	return ((food == SEALS) || (food == BAMBU) || (food == FISH));
 }
 

@@ -25,6 +25,8 @@ void print_separation() {
 int main(void) {
     std::srand(static_cast<unsigned int>(std::time(0)));
 
+    print_separation();
+
     char personality = personality_test();
     print_separation();
 

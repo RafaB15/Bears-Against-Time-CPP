@@ -19,9 +19,11 @@
 #include "map_elements/map_tools/map_candle.hpp"
 #include "map_elements/map_tools/map_fireworks.hpp"
 
-#include <iostream>
 #include "utils.hpp"
+
+#include <iostream>
 #include <algorithm>
+#include <cctype>
 
 using namespace Constants;
 using namespace TypeDefinitions;
@@ -268,6 +270,7 @@ void check_panda_chloe_visible(Game* game) {
 
 // Takes a command and changes the game accordingly
 void Game::play(char command) {
+    command = static_cast<char>(std::toupper(command));
     if (!belongs_to_vector(command, valid_commands)) {
         std::cout << "Invalid command. Please enter one of the allowed commands: (A, W, S, D, F, C, R, T) " << std::endl;
         return;
