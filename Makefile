@@ -4,6 +4,9 @@ CXXFLAGS = -Wall -Wconversion -Werror
 # Use wildcard to get all .cpp files in the current directory
 SOURCES = $(wildcard *.cpp)
 
+# Use wildcard to get all .cpp files in personality_test directory
+SOURCES += $(wildcard personality_test/*.cpp)
+
 # Use wildcard to get all .cpp files in map_elements directory
 SOURCES += $(wildcard map_elements/*.cpp)
 
@@ -20,7 +23,7 @@ SOURCES += $(wildcard player/*.cpp)
 SOURCES += $(wildcard player_tools/*.cpp)
 
 # Name of the output executable
-EXECUTABLE = game
+EXECUTABLE = bears_against_time
 
 # Target: all (default target, builds the executable) and deletes de .o generated afterwards, leaving only the executable
 all: $(EXECUTABLE)

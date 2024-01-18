@@ -4,33 +4,10 @@
 #include <limits>
 #include <chrono>
 
-/*
-#include <iostream>
-#include <chrono>
-
-int main() {
-    // Record the start time
-    auto start_time = std::chrono::high_resolution_clock::now();
-
-    // Your code here
-
-    // Record the end time
-    auto end_time = std::chrono::high_resolution_clock::now();
-
-    // Calculate the duration between start and end
-    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-
-    // Print the duration in microseconds
-    std::cout << "Time taken: " << duration.count() << " microseconds" << std::endl;
-
-    return 0;
-}
-
-*/
-
-#include "personality_test.hpp"
+#include "personality_test/personality_test.hpp"
 #include "game.hpp"
 
+//Gets a command from the user
 char get_command(void) {
     std::cout << "Enter a command: ";
     char command;
@@ -40,10 +17,17 @@ char get_command(void) {
     return command;
 }
 
+//Prints a separation line
+void print_separation() {
+    std::cout << "\n\n\n\n\n" << "----------------------------------------" << std::endl;
+}
+
 int main(void) {
     std::srand(static_cast<unsigned int>(std::time(0)));
 
     char personality = personality_test();
+    print_separation();
+
     Game game(personality);
     
     auto start_time = std::chrono::high_resolution_clock::now();
@@ -55,6 +39,7 @@ int main(void) {
     while(!game.is_over()) {
         command = get_command();
         game.play(command);
+        print_separation();
         game.print_map();
     }
 

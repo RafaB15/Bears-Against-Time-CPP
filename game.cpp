@@ -109,6 +109,7 @@ void initialize_obstacles(Map& map, Coordinates player_coordinates) {
     initialize_element<Koala>(map, player_coordinates, INITIAL_AMOUNT_KOALAS_MAP);    
 }
 
+// Receives a Map object and initializes the tools in random positions
 void initialize_tools(Map& map, Coordinates player_coordinates) {
     initialize_element<MapBattery>(map, player_coordinates, AMOUNT_BATTERIES_MAP);
     initialize_element<MapCandle>(map, player_coordinates, AMOUNT_CANDLES_MAP);
@@ -225,6 +226,7 @@ void select_tool(Player* player, char command) {
     }
 }
 
+//Executes a tool action
 void execute_tool_action(Game* game, char command) {
     Player* player = game->get_player();
     switch (command) {
@@ -255,7 +257,7 @@ void check_for_pickable_object(Player* player, Map& map) {
     }
 }
 
-//CHecks if the player is Panda and 30 seconds have been lost. If so, makes Chloe visible
+//Checks if the player is Panda and 30 seconds have been lost. If so, makes Chloe visible
 void check_panda_chloe_visible(Game* game) {
     Player* player = game->get_player();
     if (player->get_map_representation() == PANDA_REPRESENTATION && player->get_lost_time() > TIME_PANDA_SPECIAL){
