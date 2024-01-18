@@ -59,3 +59,15 @@ The characters are the following:
     - Starts with 6 candles.
     - Doesn't add any lost time for the rocks encountered.
     - When the obstacles in the map that he has encountered amount to 30 seconds of lost time, reveals Chloe's location.
+
+## Execution
+
+The program is compiled with the `g++` compiler. 
+
+### Compilation
+
+There is a **makefile** included to make the compilation easier. You have to execute `make` in the command line to generate the executable. If you want to deleate it, you can use `make clean`.
+
+### Execution
+
+To execute the game you have to run the executable introducing `./bears_against_time` in the command line.
