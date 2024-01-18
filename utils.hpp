@@ -41,8 +41,6 @@ namespace Constants {
     const char ACTIVATE_CANDLE = 'C';
     const char ACTIVATE_FIREWORKS = 'R';
 
-    const char SEE_TIME = 'T';
-
     const int INITIAL_CANDLES_AMOUNT          = 4;
     const int INITIAL_CANDLES_AMOUNT_ICE      = 6;
     const int INITIAL_FIREWORKS_AMOUNT_PANDA  = 2;
